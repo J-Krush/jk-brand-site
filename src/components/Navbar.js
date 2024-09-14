@@ -3,13 +3,11 @@ import React, { useState } from "react";
 import Logo from "./Logo";
 import { useRouter } from "next/router";
 import {
-  DribbbleIcon,
   GithubIcon,
   LinkedInIcon,
   MoonIcon,
-  PinterestIcon,
   SunIcon,
-  TwitterIcon,
+  SpotifyIcon
 } from "./Icons";
 import { motion } from "framer-motion";
 import { useThemeSwitch } from "./Hooks/useThemeSwitch";
@@ -139,16 +137,16 @@ const Navbar = () => {
         >
           <PinterestIcon />
         </motion.a> */}
-        {/* <motion.a
+        <motion.a
           target={"_blank"}
           className="w-6 mx-3"
-          href="#"
+          href="https://open.spotify.com/user/j-krush?si=2c088ce1cdd246b6"
           whileHover={{ y: -2 }}
           whileTap={{ scale: 0.9 }}
-          aria-label="Checkout my dribbble profile"
+          aria-label="Checkout my Spotify profile"
         >
-          <DribbbleIcon />
-        </motion.a> */}
+          <SpotifyIcon />
+        </motion.a>
 
         <button
           onClick={() => setMode(mode === "light" ? "dark" : "light")}
