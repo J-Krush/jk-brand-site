@@ -62,56 +62,64 @@ const Experience = () => {
           />
           <ul className="w-full flex flex-col items-start justify-between ml-4 xs:ml-2">
             <Details
-              position="Software Engineer"
-              company="Google"
-              companyLink="https://google.com"
-              time="2022-Present"
-              address="Mountain View, CA"
-              work="Worked on a team responsible for developing new features for Google's search engine, including improving the accuracy and relevance of search results and developing new tools for data analysis and visualization."
+                position="Founder and Maker"
+                company="Shapesmith Studio"
+                companyLink="https://shapesmith.studio"
+                time="2022-Present"
+                address="Asheville, NC"
+                work="Laser cutting and maker studio for large art installations, signage, layered art, and custom design."
+            />
+            <Details
+              position="Backend Software Engineer"
+              company="Zuri Fertility"
+              companyLink="https://zurifertility.com"
+              time="2022"
+              address="Remote (Contract)"
+              work="Architected the microservices backend for Zuri Fertility, a medical startup focused on providing better fertility care for both men and women."
+            />
+            <Details
+              position="Full Stack Software Engineer"
+              company="Anthroware"
+              companyLink="https://www.anthroware.com/"
+              time="2018-2021"
+              address="Asheville, NC"
+              work="Product development, full-stack engineering and business viability. Worked directly with clients and startups, providing software expertise, design and implementation on a number of different technologies."
             />
 
             <Details
-              position="Intern"
-              company="Facebook"
-              companyLink="https://facebook.com"
-              time="Summer 2021"
-              address="Menlo Park, CA."
-              work="Worked on a team responsible for developing a new mobile app
-              feature that allowed users to create and share short-form video
-              content, including designing and implementing a new user interface
-              and developing the backend infrastructure to support the feature."
+              position="VR Developer"
+              company="Better Than Unicorns (BTU)"
+              companyLink="https://betterthanunicorns.com"
+              time="2017-2018"
+              address="Asheville NC"
+              work="Virtual reality immersive experience design and development utilizing Unreal Engine. Performed photogrammetry tasks for art preservation, and photo-realistic model creation. Created photospheres (360 Panoramas) for virtual walkthroughs."
             />
 
             <Details
-              position="Software Developer"
-              company="Amazon"
-              companyLink="https://amazon.com"
-              time="2020-2021"
-              address="Seattle, WA."
-              work="Worked on a team responsible for developing Amazon's mobile app, including implementing new features such as product recommendations and user reviews, and optimizing the app's performance and reliability."
+              position="iOS Developer"
+              company="Thinklabs"
+              companyLink="https://www.thinklabs.com/"
+              time="2016-2017"
+              address="Denver, CO"
+              work="Development of the Thinklabs Stethoscope iOS app. Features included: Bluetooth LE connectivity, spectrogram (FFT) and real-time audio visualization, record and analyze heart and lung sounds, listening buffers for catching important sounds."
             />
 
             <Details
-              position="Software Developer Intern"
-              company="Microsoft"
-              companyLink="https://microsoft.com"
-              time="Summer 2019"
-              address="Redmond, WA."
-              work="Worked on a team responsible for developing new features for
-              Microsoft's Windows operating system, including implementing a new
-              user interface for a system settings panel and optimizing the
-              performance of a core system component."
+              position="Forensic Analyst"
+              company="Kineticorp"
+              companyLink="https://kineticorp.com"
+              time="2016"
+              address="Denver, CO"
+              work="Performed physics-based visualization tasks for the purpose of accident reconstruction. Conducted scene and vehicle inspections utilizing Faro 3D scanners and surveying equipment. Flew Phantom 3 drones for aerial imagery and photogrammetry solutions. Performed research studies about driver behavior and distance estimation. "
             />
 
             <Details
-              position="Teaching Assistant"
-              company="MIT"
-              companyLink="https://mit.edu"
-              time="Fall 2018"
-              address="Massachusetts Ave, Cambridge, MA."
-              work="Assisted in teaching a course on computer programming, held office
-              hours to help students with assignments, and graded exams and
-              assignments."
+              position="Technical Writer"
+              company="Fictiv"
+              companyLink="https://fictiv.com"
+              time="2015-2016"
+              address="Remote"
+              work="Wrote technical hardware development how-to articles, which can be found on Fictiv.com. Subject matter ranges from digital design to how to make a CNC drawing."
             />
           </ul>
         </div>

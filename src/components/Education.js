@@ -44,24 +44,22 @@ const Education = () => {
         />
         <ul className="w-full flex flex-col items-start justify-between ml-4">
           <Details
-            type="Bachelor of Science in Computer Science"
-            time="2016-2020"
-            place="Massachusetts Institute of Technology (MIT)"
-            info="Relevant courses included Data Structures and Algorithms, Computer Systems Engineering, and Artificial Intelligence."
+            type="Part 107 Remote Pilot"
+            time="2023"
+            place="The Pilot Institute"
+            info="FAA License for flying UAS systems."
           />
-
           <Details
-            type="Master of Computer Science"
-            time="2020-2022"
-            place="Stanford University"
-            info="Completed a master's project on deep learning, developing a new neural network architecture for natural language understanding."
+            type="Master of Science in Aerospace Engineering Sciences"
+            time="2011-2013"
+            place="University of Colorado at Boulder (CU)"
+            info="Astrodynamics and Satellite Navigation Systems focus area. Part of the engineering team for CICERO at the Laboratory for Atmospheric and Space Physics (LASP)."
           />
-
           <Details
-            type="Online Coursework"
-            time="2016-2020"
-            place="Coursera and edX"
-            info="Completed coursework in advanced topics such as Reinforcement Learning, Computer Vision, and Machine Learning Engineering."
+            type="Bachelor of Science in Aerospace Engineering"
+            time="2007-2011"
+            place="The Pennsylvania State University (PSU)"
+            info=""
           />
         </ul>
       </div>
