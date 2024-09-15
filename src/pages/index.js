@@ -8,19 +8,17 @@ import Link from "next/link";
 import lightBulb from "../../public/images/svgs/miscellaneous_icons_1.svg";
 import profilePic from "../../public/images/profile/developer-pic-1.png";
 import TransitionEffect from "@/components/TransitionEffect";
-
+import Background from "@/components/Background"
 
 export default function Home() {
   
   return (
     <>
       <Head>
-        <title>Awesome Portfolio Built with Nextjs</title>
+        <title>J-Krush Dev</title>
         <meta
           name="description"
-          content="Explore CodeBucks's Next.js developer portfolio and 
-        discover the latest webapp projects and software engineering articles. 
-        Showcase your skills as a full-stack developer and software engineer."
+          content="Full-stack developer and software engineer"
         />
       </Head>
 
@@ -33,7 +31,7 @@ export default function Home() {
             <div className="w-1/2 lg:hidden md:inline-block md:w-full">
               <Image
                 src={profilePic}
-                alt="CodeBucks"
+                alt="J-Krush"
                 className="h-auto w-full"
                 sizes="100vw"
                 priority
@@ -77,13 +75,6 @@ export default function Home() {
         </Layout>
 
         <HireMe />
-        <div className="absolute right-8 bottom-8 inline-block w-24 md:hidden">
-          <Image
-            className="relative h-auto w-full"
-            src={lightBulb}
-            alt="Codebucks"
-          />
-        </div>
       </article>
     </>
   );
