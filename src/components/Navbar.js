@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Logo from "./Logo";
 import { useRouter } from "next/router";
 import {
@@ -7,7 +7,8 @@ import {
   LinkedInIcon,
   MoonIcon,
   SunIcon,
-  SpotifyIcon
+  SpotifyIcon,
+  SoundcloudIcon
 } from "./Icons";
 import { motion } from "framer-motion";
 import { useThemeSwitch } from "./Hooks/useThemeSwitch";
@@ -59,12 +60,23 @@ const CustomMobileLink = ({ href, title, className = "", toggle }) => {
 
 const Navbar = () => {
   const [mode, setMode] = useThemeSwitch();
-    const [isOpen, setIsOpen] = useState(false);
+  let modalRef = useRef();
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleClick = () => {
     setIsOpen(!isOpen);
   };
 
+  function checkClickOutside(e)  {
+    if (isOpen && modalRef && modalRef.current && !modalRef.current.contains(e.target)) {
+      setIsOpen(!isOpen);
+    }
+  }
+
+
+  useEffect(() => {
+    document.addEventListener('mousedown', checkClickOutside);
+  })
 
 
   return (
@@ -90,23 +102,13 @@ const Navbar = () => {
       <nav className="flex items-center justify-center">
         <CustomLink className="mr-4" href="/" title="Home" />
         <CustomLink className="mx-4" href="/about" title="About" />
-        <CustomLink className="mx-4" href="/projects" title="Projects" />
-        <CustomLink className="ml-4" href="/articles" title="Articles" />
+        <CustomLink className="mx-4" href="/work" title="Work" />
+        <CustomLink className="ml-4" href="/connect" title="Connect" />
       </nav>
       <nav
         className="flex items-center justify-center flex-wrap lg:mt-2
       "
       >
-        {/* <motion.a
-          target={"_blank"}
-          className="w-6 mr-3"
-          href="#"
-          whileHover={{ y: -2 }}
-          whileTap={{ scale: 0.9 }}
-          aria-label="Checkout my twitter profile"
-        >
-          <TwitterIcon />
-        </motion.a> */}
         <motion.a
           target={"_blank"}
           className="w-6 mx-3"
@@ -127,16 +129,6 @@ const Navbar = () => {
         >
           <LinkedInIcon />
         </motion.a>
-        {/* <motion.a
-          target={"_blank"}
-          className="w-6 mx-3 bg-light rounded-full"
-          href="#"
-          whileHover={{ y: -2 }}
-          whileTap={{ scale: 0.9 }}
-          aria-label="Checkout my pinterest profile"
-        >
-          <PinterestIcon />
-        </motion.a> */}
         <motion.a
           target={"_blank"}
           className="w-6 mx-3"
@@ -146,6 +138,16 @@ const Navbar = () => {
           aria-label="Checkout my Spotify profile"
         >
           <SpotifyIcon />
+        </motion.a>
+        <motion.a
+          target={"_blank"}
+          className="w-6 mx-3"
+          href="https://soundcloud.com/megakrush"
+          whileHover={{ y: -2 }}
+          whileTap={{ scale: 0.9 }}
+          aria-label="Checkout my Soundcloud profile"
+        >
+          <SoundcloudIcon />
         </motion.a>
 
         <button
@@ -166,7 +168,9 @@ const Navbar = () => {
     {
       isOpen ? 
 
-      <motion.div className="min-w-[70vw] sm:min-w-[90vw] flex justify-between items-center flex-col fixed top-1/2 left-1/2 -translate-x-1/2
+      <motion.div 
+      ref={modalRef}
+      className="min-w-[70vw] sm:min-w-[90vw] flex justify-between items-center flex-col fixed top-1/2 left-1/2 -translate-x-1/2
       -translate-y-1/2
       py-32 bg-dark/90 dark:bg-light/75 rounded-lg z-50 backdrop-blur-md
       "
@@ -176,8 +180,8 @@ const Navbar = () => {
       <nav className="flex items-center justify-center flex-col">
         <CustomMobileLink toggle={handleClick} className="mr-4 lg:m-0 lg:my-2" href="/" title="Home" />
         <CustomMobileLink toggle={handleClick} className="mx-4 lg:m-0 lg:my-2" href="/about" title="About" />
-        <CustomMobileLink toggle={handleClick} className="mx-4 lg:m-0 lg:my-2" href="/projects" title="Projects" />
-        <CustomMobileLink toggle={handleClick} className="ml-4 lg:m-0 lg:my-2" href="/articles" title="Articles" />
+        <CustomMobileLink toggle={handleClick} className="mx-4 lg:m-0 lg:my-2" href="/work" title="Work" />
+        <CustomMobileLink toggle={handleClick} className="ml-4 lg:m-0 lg:my-2" href="/connect" title="Connect" />
       </nav>
       <nav
         className="flex items-center justify-center  mt-2
@@ -185,18 +189,8 @@ const Navbar = () => {
       >
         <motion.a
           target={"_blank"}
-          className="w-6 m-1 mr-3 sm:mx-1"
-          href="#"
-          whileHover={{ y: -2 }}
-          whileTap={{ scale: 0.9 }}
-          aria-label="Checkout my twitter profile"
-        >
-          <TwitterIcon />
-        </motion.a>
-        <motion.a
-          target={"_blank"}
-          className="w-6 m-1 mx-3 bg-light rounded-full dark:bg-dark sm:mx-1"
-          href="#"
+          className="w-6 mx-3"
+          href="https://github.com/J-Krush"
           whileHover={{ y: -2 }}
           whileTap={{ scale: 0.9 }}
           aria-label="Checkout my github profile"
@@ -205,8 +199,8 @@ const Navbar = () => {
         </motion.a>
         <motion.a
           target={"_blank"}
-          className="w-6 m-1 mx-3 sm:mx-1"
-          href="#"
+          className="w-6 mx-3"
+          href="https://www.linkedin.com/in/john-kreisher-792aa34b/"
           whileHover={{ y: -2 }}
           whileTap={{ scale: 0.9 }}
           aria-label="Checkout my linkedin profile"
@@ -215,23 +209,23 @@ const Navbar = () => {
         </motion.a>
         <motion.a
           target={"_blank"}
-          className="w-6 m-1 mx-3 bg-light rounded-full sm:mx-1"
-          href="#"
+          className="w-6 mx-3"
+          href="https://open.spotify.com/user/j-krush?si=2c088ce1cdd246b6"
           whileHover={{ y: -2 }}
           whileTap={{ scale: 0.9 }}
-          aria-label="Checkout my pinterest profile"
+          aria-label="Checkout my Spotify profile"
         >
-          <PinterestIcon />
+          <SpotifyIcon />
         </motion.a>
         <motion.a
           target={"_blank"}
-          className="w-6 m-1 mx-3 sm:mx-1"
-          href="#"
+          className="w-6 mx-3"
+          href="https://soundcloud.com/megakrush"
           whileHover={{ y: -2 }}
           whileTap={{ scale: 0.9 }}
-          aria-label="Checkout my dribbble profile"
+          aria-label="Checkout my Soundcloud profile"
         >
-          <DribbbleIcon />
+          <SoundcloudIcon />
         </motion.a>
 
         <button
