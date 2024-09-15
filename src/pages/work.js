@@ -1,3 +1,4 @@
+import { useRef } from "react"
 import AnimatedText from "@/components/AnimatedText";
 import { GithubIcon } from "@/components/Icons";
 import Layout from "@/components/Layout";
@@ -11,6 +12,13 @@ import proj3 from "../../public/images/projects/fashion-studio-website.jpg";
 import proj4 from "../../public/images/projects/portfolio-cover-image.jpg";
 import proj5 from "../../public/images/projects/agency-website-cover-image.jpg";
 import proj6 from "../../public/images/projects/devdreaming.jpg";
+
+import softwareImage from "../../public/images/projects/magicstudio-computer-engineer.jpeg";
+import geniusFrequencySite from "../../public/images/projects/genius-frequency-site-hero.png";
+import shapesmithStudioSite from "../../public/images/projects/shapesmith-studio-site-hero.png";
+import flowcraftMediaSite from "../../public/images/projects/flowcraft-media-site-hero.png"
+import zuriFertilitySite from "../../public/images/projects/zuri-fertility-site-hero.png";
+
 import TransitionEffect from "@/components/TransitionEffect";
 
 const FramerImage = motion(Image);
@@ -63,6 +71,7 @@ lg:p-8 xs:rounded-2xl  xs:rounded-br-3xl xs:p-4
         <p className=" my-2 rounded-md font-medium text-dark dark:text-light sm:text-sm">
           {summary}
         </p>
+        {github ?
         <div className="mt-2 flex items-center">
           <Link
             href={github}
@@ -73,7 +82,7 @@ lg:p-8 xs:rounded-2xl  xs:rounded-br-3xl xs:p-4
             <GithubIcon />
           </Link>
           <Link
-            href={link}
+            href={github}
             target={"_blank"}
             className="ml-4 rounded-lg
              bg-dark p-2 px-6 text-lg font-semibold text-light dark:bg-light dark:text-dark 
@@ -84,12 +93,14 @@ lg:p-8 xs:rounded-2xl  xs:rounded-br-3xl xs:p-4
             Visit Project
           </Link>
         </div>
+        : <></>
+        }
       </div>
     </article>
   );
 };
 
-const Project = ({ title, type, img, link, github }) => {
+const Project = ({ title, subtitle, img, link, onClick }) => {
 
   return (
     <article
@@ -103,8 +114,9 @@ const Project = ({ title, type, img, link, github }) => {
          dark:bg-light  md:-right-2 md:w-[101%] xs:h-[102%]
         xs:rounded-[1.5rem]  "
       />
-
+      
       <Link
+        onClick={onClick}
         href={link}
         target={"_blank"}
         className="w-full cursor-pointer overflow-hidden rounded-lg"
@@ -122,10 +134,11 @@ const Project = ({ title, type, img, link, github }) => {
       </Link>
       <div className="mt-4 flex w-full flex-col items-start justify-between">
         <span className="text-xl font-medium text-primary dark:text-primaryDark lg:text-lg md:text-base">
-          {type}
+          {subtitle}
         </span>
 
         <Link
+          onClick={onClick}
           href={link}
           target={"_blank"}
           className="underline-offset-2 hover:underline"
@@ -136,6 +149,7 @@ const Project = ({ title, type, img, link, github }) => {
         </Link>
         <div className="flex w-full items-center  justify-between">
           <Link
+            onClick={onClick}
             href={link}
             target={"_blank"}
             className="rounded text-lg
@@ -145,21 +159,22 @@ const Project = ({ title, type, img, link, github }) => {
           >
             Visit
           </Link>
-          <Link
-            href={github}
-            target={"_blank"}
-            className="w-8 md:w-6"
-            aria-label={title}
-          >
-            <GithubIcon />
-          </Link>
         </div>
       </div>
     </article>
   );
 };
 
-export default function Projects() {
+export default function Work() {
+  const RecentSoftwareProjectsRef = useRef(null)
+
+  const scrollToSection = (sectionId) => {
+    const element = document.querySelector(sectionId)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   return (
     <>
       <Head>
@@ -180,68 +195,110 @@ export default function Projects() {
             text="My Work"
             className="mb-8 !text-8xl !leading-tight lg:!text-7xl sm:mb-8 sm:!text-6xl xs:!text-4xl"
           />
+
+          <h3 className="mb-8 font-bold text-6xl mt-64 w-full text-center md:text-4xl sm:!text-2xl md:mt-32">
+            My Businesses
+          </h3> 
           <p className="font-medium mb-8 text-center">
-            Wearing Many Hats, But They All Fit
+            Wearing many hats, but they all fit
           </p>
 
-          <div className="grid grid-cols-12 gap-24 gap-y-32 xl:gap-x-16 lg:gap-x-8 md:gap-y-24 sm:gap-x-0">
-            {/* <div className="col-span-12">
-              <FeaturedProject
-                type="Featured Project"
-                title="Crypto Screener Application"
-                summary="A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your local currency."
-                img={proj1}
-                link="https://devdreaming.com/videos/build-crypto-screener-app-with-react-tailwind-css"
-                github="https://github.com/codebucks27/CryptoBucks-Final-Code"
-              />
-            </div> */}
-            <div className="col-span-6 sm:col-span-12">
+          <div className="grid grid-cols-12 gap-24 gap-y-12 xl:gap-x-16 lg:gap-x-8 md:gap-y-24 sm:gap-x-0">
+            <div className="col-span-4 sm:col-span-12">
               <Project
-                type="Website Template"
-                title="NFT collection Website"
-                img={proj2}
-                link="https://devdreaming.com/videos/create-nft-collection-website-reactjs"
-                github="https://github.com/codebucks27/The-Weirdos-NFT-Website-Starter-Code"
+                subtitle="Full Stack Software Development"
+                title="Cubik Software Development"
+                img={softwareImage}
+                link="#" // link to section of the work page
+                onClick={() => scrollToSection(RecentSoftwareProjectsRef)}
               />
             </div>
-            <div className="col-span-6 sm:col-span-12">
+            <div className="col-span-4 sm:col-span-12">
               <Project
-                type="Website"
-                title="Fashion Studio Website"
-                img={proj3}
-                link="https://devdreaming.com/videos/build-stunning-fashion-studio-website-with-reactJS-locomotive-scroll-gsap"
-                github="https://github.com/codebucks27/wibe-studio"
+                subtitle="Drone Cinematography"
+                title="Flowcraft Media"
+                img={flowcraftMediaSite}
+                link="https://flowcraft-media-main.webflow.io/coming-soon"
+              />
+            </div>
+            <div className="col-span-4 sm:col-span-12">
+              <Project
+                subtitle="Laser Cutting"
+                title="Shapesmith Studio"
+                summary=""
+                img={shapesmithStudioSite}
+                link="https://shapesmith.studio"
+              />
+            </div>
+          </div>
+
+          <h3 ref={RecentSoftwareProjectsRef} className="mb-16 font-bold text-6xl mt-64 w-full text-center md:text-4xl sm:!text-2xl md:mt-32">
+            Recent Projects
+          </h3> 
+          <div className="grid grid-cols-12 gap-24 gap-y-12 xl:gap-x-16 lg:gap-x-8 md:gap-y-24 sm:gap-x-0">
+            <div className="col-span-12">
+              <FeaturedProject
+                type="Webflow Site and Node.js API"
+                title="Genius Frequency Website and Astrological Calculator"
+                summary="A fully responsive website built with Webflow, and custom API built on Node.js, including true sidereal astrological calculator."
+                img={geniusFrequencySite}
+                link="https://www.geniusfrequency.com"
               />
             </div>
             <div className="col-span-12">
               <FeaturedProject
-                type="Portfolio Website"
-                title="React Portfolio Website"
-                summary="A professional portfolio website using React JS, Framer-motion, and Styled-components. It has smooth page transitions, cool background effects, unique design and it is mobile responsive."
-                img={proj4}
-                link="https://devdreaming.com/videos/build-stunning-portfolio-website-react-js-framer-motion"
-                github="https://github.com/codebucks27/react-portfolio-final"
+                type="React Website"
+                title="Shapesmith Studio Website"
+                summary="A React.js and Tailwind CSS site. All content served via Sanity CMS."
+                img={shapesmithStudioSite}
+                link="https://www.shapemsith.studio"
+                github="https://github.com/J-Krush/shapesmith-studio-web"
               />
             </div>
-            <div className="col-span-6 sm:col-span-12">
-              <Project
-                type="Website Template"
-                img={proj5}
-                title="Agency Website Template"
-                link="https://devdreaming.com/videos/build-stunning-fashion-studio-website-with-reactJS-locomotive-scroll-gsap"
-                github="https://github.com/codebucks27/wibe-studio"
-              />
-            </div>
-            <div className="col-span-6 sm:col-span-12">
-              <Project
-                type="Blog Website"
-                img={proj6}
-                title="DevDreaming"
-                link="https://devdreaming.com"
-                github="https://github.com/codebucks27"
+            <div className="col-span-12">
+              <FeaturedProject
+                type="Medical Startup"
+                title="Zuri Fertility App Backend"
+                summary="Microservices architecture built with Nest.js and Postgres databases."
+                img={zuriFertilitySite}
+                link="https://www.zurifertility.com"
               />
             </div>
           </div>
+
+          <h3 className="mb-16 font-bold text-6xl mt-64 w-full text-center md:text-4xl sm:!text-2xl md:mt-32">
+            Tools and Components
+          </h3> 
+          <div className="grid grid-cols-12 gap-24 gap-y-12 xl:gap-x-16 lg:gap-x-8 md:gap-y-24 sm:gap-x-0">
+          <div className="col-span-4 sm:col-span-6">
+              <Project
+                subtitle="Integrated with NASA Planetary API"
+                title="Astrological Calculator"
+                img={proj2}
+                link="#" // link to section of the work page
+              />
+            </div>
+            <div className="col-span-4 sm:col-span-6">
+              <Project
+                subtitle="AWS SES"
+                title="Email Sender Serverless Function"
+                img={proj3}
+                link="https://github.com/J-Krush/genius-facilitate-email-service"
+                github="https://github.com/J-Krush/genius-facilitate-email-service"
+              />
+            </div>
+            {/* <div className="col-span-3 sm:col-span-6">
+              <Project
+                subtitle="Laser Cutting"
+                title="Shapesmith Studio"
+                summary=""
+                img={proj4}
+                link="https://shapesmith.studio"
+              />
+            </div> */}
+          </div>
+          
+
         </Layout>
       </main>
     </>
