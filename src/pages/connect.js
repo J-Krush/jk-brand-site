@@ -1,9 +1,57 @@
+import { useState } from 'react';
 import AnimatedText from "@/components/AnimatedText";
 import Layout from "@/components/Layout";
 import TransitionEffect from "@/components/TransitionEffect";
 
 
 const ContactForm = () => {
+
+  const [formName, setFormName] = useState("");
+  const [formPhone, setFormPhone] = useState("");
+  const [formEmail, setFormEmail] = useState("");
+	const [formSubject, setFormSubject] = useState("");
+  const [formMessage, setFormMessage] = useState("");
+  const [formBotField, setFormBotField] = useState("");
+  const [formSubmitted, setFormSubmitted] = useState(false);
+
+	const encode = (data) => {
+    return Object.keys(data)
+        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+        .join("&");
+  }
+    
+  const handleSubmit = e => {
+
+    console.log('handle submit');
+    console.log('name: ', formName);
+    console.log('email: ', formEmail);
+    console.log('message: ', formMessage);
+    
+    e.preventDefault();
+
+    fetch("https://jkrush.dev/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({ 
+          "form-name": "contact-form",
+          name: formName,
+          phone: formPhone,
+          email: formEmail,
+          subject: formSubject,
+          message: formMessage,
+          "bot-field": formBotField
+        })
+      })
+        .then(() => {
+        // console.log('success');
+        alert("Success!");
+        setFormSubmitted(true);
+      })
+        .catch(error => {
+        console.log('error: ', error);
+        alert(error)
+      });
+  };
 
   return (
     <article
@@ -26,6 +74,16 @@ lg:p-8 xs:rounded-2xl  xs:rounded-br-3xl xs:p-4
                 id="name"
                 placeholder="Your Name"
                 className="w-full rounded-lg p-3 text-dark" 
+                onChange={(e) => setFormName(e.target.value)}
+              />
+            </div>
+            <div>
+              <label htmlFor="phone" className="block text-sm font-medium mb-1">Phone</label>
+              <input
+                id="phone"
+                placeholder="Your Phone (optional)"
+                className="w-full rounded-lg p-3 text-dark" 
+                onChange={(e) => setFormPhone(e.target.value)}
               />
             </div>
             <div>
@@ -35,6 +93,7 @@ lg:p-8 xs:rounded-2xl  xs:rounded-br-3xl xs:p-4
                 type="email"
                 placeholder="your@email.com"
                 className="w-full rounded-lg p-3 text-dark" 
+                onChange={(e) => setFormEmail(e.target.value)}
               />
             </div>
             <div>
@@ -43,6 +102,7 @@ lg:p-8 xs:rounded-2xl  xs:rounded-br-3xl xs:p-4
                 id="message"
                 placeholder="Your message"
                 className="w-full rounded-lg p-3 text-dark"
+                onChange={(e) => setFormMessage(e.target.value)}
               />
             </div>
 
