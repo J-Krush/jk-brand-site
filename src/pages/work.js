@@ -271,7 +271,14 @@ export default function Work() {
             Tools and Components
           </h3> 
           <div className="grid grid-cols-12 gap-24 gap-y-12 xl:gap-x-16 lg:gap-x-8 md:gap-y-24 sm:gap-x-0">
-          <div className="col-span-4 sm:col-span-6">
+            <div className="col-span-4 sm:col-span-6">
+              <Project
+                subtitle="Serverless Function"
+                title="Recaptcha Verification V3"
+                link=""
+              />
+            </div>
+            <div className="col-span-4 sm:col-span-6">
               <Project
                 subtitle="Integrated with NASA Planetary API"
                 title="Astrological Calculator"
@@ -281,22 +288,13 @@ export default function Work() {
             </div>
             <div className="col-span-4 sm:col-span-6">
               <Project
-                subtitle="AWS SES"
-                title="Email Sender Serverless Function"
+                subtitle="AWS SES Serverless Function"
+                title="Email Sender"
                 img={proj3}
                 link="https://github.com/J-Krush/genius-facilitate-email-service"
                 github="https://github.com/J-Krush/genius-facilitate-email-service"
               />
             </div>
-            {/* <div className="col-span-3 sm:col-span-6">
-              <Project
-                subtitle="Laser Cutting"
-                title="Shapesmith Studio"
-                summary=""
-                img={proj4}
-                link="https://shapesmith.studio"
-              />
-            </div> */}
           </div>
           
 
