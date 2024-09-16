@@ -166,12 +166,10 @@ const Project = ({ title, subtitle, img, link, onClick }) => {
 };
 
 export default function Work() {
-  const RecentSoftwareProjectsRef = useRef(null)
-
   const scrollToSection = (sectionId) => {
-    const element = document.querySelector(sectionId)
+    const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+      element.scrollIntoView({ behavior: 'smooth' });
     }
   }
 
@@ -188,7 +186,7 @@ export default function Work() {
 
       <TransitionEffect />
       <main
-        className={`mb-16  flex w-full flex-col items-center justify-center dark:text-light`}
+        className={`mb-16 flex w-full flex-col items-center justify-center dark:text-light`}
       >
         <Layout className="pt-16">
           <AnimatedText
@@ -207,10 +205,13 @@ export default function Work() {
             <div className="col-span-4 sm:col-span-12">
               <Project
                 subtitle="Full Stack Software Development"
-                title="Cubik Software Development"
+                title="Software Development & Consulting"
                 img={softwareImage}
                 link="#" // link to section of the work page
-                onClick={() => scrollToSection(RecentSoftwareProjectsRef)}
+                onClick={(event) => {
+                  event.preventDefault();
+                  scrollToSection('featured_software_projects')
+                }}
               />
             </div>
             <div className="col-span-4 sm:col-span-12">
@@ -232,8 +233,8 @@ export default function Work() {
             </div>
           </div>
 
-          <h3 ref={RecentSoftwareProjectsRef} className="mb-16 font-bold text-6xl mt-64 w-full text-center md:text-4xl sm:!text-2xl md:mt-32">
-            Recent Projects
+          <h3 id="featured_software_projects" className="mb-16 font-bold text-6xl mt-64 w-full text-center md:text-4xl sm:!text-2xl md:mt-32">
+            Featured Software Projects
           </h3> 
           <div className="grid grid-cols-12 gap-24 gap-y-12 xl:gap-x-16 lg:gap-x-8 md:gap-y-24 sm:gap-x-0">
             <div className="col-span-12">

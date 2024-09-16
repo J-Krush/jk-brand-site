@@ -36,9 +36,9 @@ const Skills = () => {
           <button
             type="button"
             onClick={() => setVisibleSkills('software')}
-            class={`px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border border-gray-900 rounded-s-lg 
+            class={`px-4 py-2 text-sm font-medium bg-transparent border border-gray-900 rounded-s-lg 
             hover:bg-gray-900 hover:text-white 
-            ${visibleSkills === 'software' ? "z-10 ring-2 ring-gray-500 bg-gray-900 text-white dark:text-gray-900 dark:bg-white" : ""}
+            ${visibleSkills === 'software' ? "text-white z-10 ring-2 ring-gray-500 bg-gray-900 dark:text-gray-900 dark:bg-white" : "text-gray-900"}
             dark:border-white dark:text-white 
             dark:hover:text-white dark:hover:bg-gray-700`}>
               Software
@@ -49,9 +49,9 @@ const Skills = () => {
           <button 
             type="button"
             onClick={() => setVisibleSkills('creative')}
-            className={`px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border border-gray-900 rounded-e-lg 
+            className={`px-4 py-2 text-sm font-medium bg-transparent border border-gray-900 rounded-e-lg 
               hover:bg-gray-900 hover:text-white 
-              ${visibleSkills === 'creative' ? "z-10 ring-2 ring-gray-500 bg-gray-900 text-white dark:text-gray-900 dark:bg-white" : ""}
+              ${visibleSkills === 'creative' ? "z-10 ring-2 ring-gray-500 bg-gray-900 text-white dark:text-gray-900 dark:bg-white" : "text-gray-900"}
               dark:border-white dark:text-white
               dark:hover:text-white dark:hover:bg-gray-700`}>
               Creative
