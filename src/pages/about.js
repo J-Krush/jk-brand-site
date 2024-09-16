@@ -9,6 +9,7 @@ import Experience from "@/components/Experience";
 import Education from "@/components/Education";
 import AnimatedText from "@/components/AnimatedText";
 import TransitionEffect from "@/components/TransitionEffect";
+import Typewriter from 'typewriter-effect';
 
 function AnimatedNumberFramerMotion({ value }) {
   const ref = useRef(null);
@@ -35,6 +36,7 @@ function AnimatedNumberFramerMotion({ value }) {
 }
 
 export default function About() {
+
   return (
     <>
       <Head>
@@ -56,8 +58,28 @@ export default function About() {
           <div className="grid w-full grid-cols-8 gap-16 sm:gap-8">
             <div className="col-span-3 flex flex-col items-start justify-start xl:col-span-4 md:order-2 
             md:col-span-8">
+              <Typewriter
+                onInit={(typewriter) => {
+                  typewriter.typeString("I'm J-Krush")
+                    .callFunction(() => {
+                      console.log('String typed out!');
+                    })
+                    .pauseFor(2500)
+                    .deleteChars(6)
+                    .typeString("ohn Kreisher")
+                    .pauseFor(2500)
+                    .deleteChars(12)
+                    .start();
+                }}
+                options={{
+                  // strings: ["I'm J-Krush", "I'm John Kreisher"],
+                  // autoStart: true,
+                  loop: true,
+                  // delay: 50,
+                }}
+              />
               <h2 className="mb-4 text-lg font-bold uppercase text-dark/75 dark:text-light/75">
-                BIOGRAPHY
+                I'm J-Krush
               </h2>
               <p className="font-medium ">
                I don’t stick to just one lane—I build, create, and explore across multiple mediums. Whether it’s writing code, composing music, or designing systems, my work brings together different disciplines to find unique solutions. I believe in breaking down barriers and crafting systems where trust, compassion, and creativity can thrive. For me, it’s all about connecting ideas, people, and experiences to make the world a bit more fun, open, and full of possibilities.
@@ -73,6 +95,7 @@ export default function About() {
                 forward to the opportunity to bring my skills and passion to
                 your next project.
               </p> */}
+              
             </div>
             <div className="relative col-span-3 h-max rounded-2xl border-2 border-solid border-dark 
             bg-light p-8 dark:border-light dark:bg-dark
@@ -128,8 +151,6 @@ export default function About() {
           </div>
 
           <Skills />
-          {/* <SoftwareSkills />
-          <CreativeSkills /> */}
           <Experience />
           <Education />
         </Layout>
