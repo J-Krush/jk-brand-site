@@ -99,6 +99,7 @@ const SoftwareSkills = () => {
           <Skill name="Github" x="-35vw" y="-5vw" />
           <Skill name="Webflow" x="32vw" y="-5vw" />
           <Skill name="Node.js" x="0vw" y="-20vw" />
+          <Skill name="AI and LLMs" x="10vw" y="-30vw" />
           <Skill name="Bubble" x="-20vw" y="22vw" />
           <Skill name="Tawilwind CSS" x="28vw" y="18vw" />
           <Skill name="Blockchain & Crypto" x="-26vw" y="12vw" />
