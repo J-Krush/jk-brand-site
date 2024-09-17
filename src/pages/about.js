@@ -1,6 +1,8 @@
 import Layout from "@/components/Layout";
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
+import { LinkArrow } from "@/components/Icons";
 import profile from "../../public/images/profile/developer-pic-2.jpg";
 import { useInView, useMotionValue, useSpring } from "framer-motion";
 import { useEffect, useRef } from "react";
@@ -10,6 +12,12 @@ import Education from "@/components/Education";
 import AnimatedText from "@/components/AnimatedText";
 import TransitionEffect from "@/components/TransitionEffect";
 import Typewriter from 'typewriter-effect';
+import { Project } from "@/components/Project";
+
+import softwareImage from "../../public/images/projects/magicstudio-computer-engineer.jpeg";
+import flowcraftMediaSite from "../../public/images/projects/flowcraft-media-site-hero.png"
+import shapesmithStudioSite from "../../public/images/projects/shapesmith-studio-site-hero.png";
+
 
 function AnimatedNumberFramerMotion({ value }) {
   const ref = useRef(null);
@@ -84,6 +92,20 @@ export default function About() {
                I don’t stick to just one lane—I build, create, and explore across multiple mediums. Whether it’s writing code, composing music, or designing systems, my work brings together different disciplines to find unique solutions. I believe in breaking down barriers and crafting systems where trust, compassion, and creativity can thrive. For me, it’s all about connecting ideas, people, and experiences to make the world a bit more fun, open, and full of possibilities.
               
               </p>
+              <Link
+                  // whileHover={{
+                  //   cursor: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='font-size:24px;'><text y='50%'>👆</text></svg>"), auto`,
+                  // }}
+                  href="/work"
+                  className={`flex items-center mt-6 rounded-lg border-2 border-solid bg-dark p-2.5 px-6 text-lg font-semibold
+                  capitalize text-light hover:border-dark hover:bg-transparent hover:text-dark 
+                  dark:bg-light dark:text-dark dark:hover:border-light dark:hover:bg-dark dark:hover:text-light
+                  md:p-2 md:px-4 md:text-base
+                  `}
+                  download
+                >
+                  Connect <LinkArrow className="ml-1 !w-6 md:!w-4" />
+                </Link>
               {/* <p className="my-4 font-medium">
                 I’m a builder at heart—whether it’s creating code, composing music, or performing on stage. I thrive on mixing things up, bridging silos, and finding new ways to connect people through creativity. My work isn’t just about solving problems—it’s about playing with possibilities, exploring ideas, and making the world a more open and compassionate place. And yeah, I like to have fun while I’m at it.
               </p> */}
@@ -146,6 +168,47 @@ export default function About() {
                   Human Design
                 </h2>
               </div>
+            </div>
+          </div>
+
+          <h3 className="mb-8 font-bold text-6xl mt-64 w-full text-center md:text-4xl sm:!text-2xl md:mt-32">
+            My Businesses
+          </h3> 
+          <p className="font-medium mb-8 text-center">
+            Wearing many hats, but they all fit
+          </p>
+          <div className="grid grid-cols-12 gap-24 gap-y-12 xl:gap-x-16 lg:gap-x-8 md:gap-y-24 sm:gap-x-0">
+            <div className="col-span-4 sm:col-span-12">
+              <Project
+                subtitle="Full Stack Software Development & Consulting"
+                title="J-Krush Dev"
+                img={softwareImage}
+                link="/work"
+                newTab={false}
+                imageOnTop={false}
+                showVisitButton={false}
+              />
+            </div>
+            <div className="col-span-4 sm:col-span-12">
+              <Project
+                subtitle="Drone Cinematography"
+                title="Flowcraft Media"
+                img={flowcraftMediaSite}
+                link="https://flowcraft-media-main.webflow.io/coming-soon"
+                imageOnTop={false}
+                showVisitButton={false}
+              />
+            </div>
+            <div className="col-span-4 sm:col-span-12">
+              <Project
+                subtitle="Laser Cutting and Maker Studio"
+                title="Shapesmith Studio"
+                summary=""
+                img={shapesmithStudioSite}
+                link="https://shapesmith.studio"
+                imageOnTop={false}
+                showVisitButton={false}
+              />
             </div>
           </div>
 
