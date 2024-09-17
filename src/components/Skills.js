@@ -38,8 +38,8 @@ const Skills = () => {
             onClick={() => setVisibleSkills('software')}
             class={`px-4 py-2 text-sm font-medium bg-transparent border border-gray-900 rounded-s-lg 
             hover:bg-gray-900 hover:text-white 
-            ${visibleSkills === 'software' ? "text-white z-10 ring-2 ring-gray-500 bg-gray-900 dark:text-gray-900 dark:bg-white" : "text-gray-900"}
-            dark:border-white dark:text-white 
+            ${visibleSkills === 'software' ? "text-white z-10 ring-2 ring-gray-500 bg-gray-900 dark:text-gray-900 dark:bg-white" : "text-gray-900 dark:text-white"}
+            dark:border-white
             dark:hover:text-white dark:hover:bg-gray-700`}>
               Software
           </button>
@@ -51,8 +51,8 @@ const Skills = () => {
             onClick={() => setVisibleSkills('creative')}
             className={`px-4 py-2 text-sm font-medium bg-transparent border border-gray-900 rounded-e-lg 
               hover:bg-gray-900 hover:text-white 
-              ${visibleSkills === 'creative' ? "z-10 ring-2 ring-gray-500 bg-gray-900 text-white dark:text-gray-900 dark:bg-white" : "text-gray-900"}
-              dark:border-white dark:text-white
+              ${visibleSkills === 'creative' ? "z-10 ring-2 ring-gray-500 bg-gray-900 text-white dark:text-gray-900 dark:bg-white" : "text-gray-900 dark:text-white"}
+              dark:border-white
               dark:hover:text-white dark:hover:bg-gray-700`}>
               Creative
           </button>
