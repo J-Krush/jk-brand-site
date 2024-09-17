@@ -46,9 +46,11 @@ export default function Work() {
             text="My Work"
             className="mb-8 !text-8xl !leading-tight lg:!text-7xl sm:mb-8 sm:!text-6xl xs:!text-4xl"
           />
-          <p className="font-medium mb-8 text-center">
+          <p className="font-large mb-8 text-center">
             I help businesses set up key infrastructure, and automate processes. 
-            My specialty is holistic systems design and integration, and custom 
+          </p>
+          <p className="font-large mb-8 text-center"> 
+            My specialty is in custom software development and holistic systems design and integration.
           </p>
 
           <h3 id="featured_software_projects" className="mb-16 font-bold text-6xl mt-64 w-full text-center md:text-4xl sm:!text-2xl md:mt-32">

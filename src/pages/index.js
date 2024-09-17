@@ -1,3 +1,4 @@
+import Typewriter from 'typewriter-effect';
 import AnimatedText from "@/components/AnimatedText";
 import { HireMe } from "@/components/HireMe";
 import { LinkArrow } from "@/components/Icons";
@@ -27,8 +28,8 @@ export default function Home() {
         className={`flex min-h-screen items-center text-dark dark:text-light sm:items-start`}
       >
         <Layout className="!pt-0 md:!pt-16 sm:!pt-16">
-          <div className="flex w-full items-start justify-between md:flex-col">
-            <div className="w-1/2 lg:hidden md:inline-block md:w-full">
+          <div className="flex w-full items-start justify-between lg:items-center lg:flex-col">
+            <div className="w-1/2 lg:justify-center md:inline-block md:w-full">
               <Image
                 src={profilePic}
                 alt="J-Krush"
@@ -37,13 +38,36 @@ export default function Home() {
                 priority
               />
             </div>
-            <div className="flex w-1/2 flex-col items-start self-center lg:w-full lg:text-center">
-              <AnimatedText
+            <div className="flex w-1/2 flex-col items-start self-center lg:items-center lg:w-full lg:text-center">
+              {/* <AnimatedText
                 text="Creating across mediums, connecting the dots, making magic happen."
-                className="!text-left !text-6xl xl:!text-5xl lg:!text-center lg:!text-6xl md:!text-5xl sm:!text-3xl"
-              />
-              <p className="!text-left my-4 text-base font-medium md:text-sm sm:!text-xs">
-              Polymath at heart, always learning, always building.
+                className="!text-left !text-6xl xl:!text-5xl lg:!text-6xl md:!text-5xl sm:!text-3xl"
+              /> */}
+              <div className="h-8 mb-6">
+                <Typewriter
+                  className="mb-4 text-lg font-bold uppercase text-dark/75 dark:text-light/75"
+                  onInit={(typewriter) => {
+                    typewriter.typeString("<span style='font-size: 30px;line-height: 36px;font-weight: 700;'>I'm J-Krush</span>")
+                      .callFunction(() => {
+                        console.log('String typed out!');
+                      })
+                      .pauseFor(2500)
+                      .deleteChars(6)
+                      .typeString("<span style='font-size: 30px;line-height: 36px;font-weight: 600;'>ohn Kreisher</span>")
+                      .pauseFor(2500)
+                      .deleteChars(12)
+                      .start();
+                  }}
+                  options={{
+                    loop: true,
+                    cursor: "<span style='font-size: 30px;line-height: 36px;font-weight: 700;'>.</span>",
+                    className: "mb-4 text-lg font-bold uppercase text-dark/75 dark:text-light/75"
+                  }}
+                />
+              </div>
+              
+              <p className="text-center my-4 text-base font-medium lg:text-center md:text-sm sm:!text-xs">
+              Polymath at heart.. always learning, always building.
               </p>
               <div className="mt-2 flex items-center self-start lg:self-center">
                 <Link

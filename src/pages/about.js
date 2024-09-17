@@ -3,7 +3,8 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { LinkArrow } from "@/components/Icons";
-import profile from "../../public/images/profile/developer-pic-2.jpg";
+import profile from "../../public/images/profile/jkrush-goofy-profile.JPG";
+import profileAndRolig from "../../public/images/profile/jkrush-and-rolig.jpg";
 import { useInView, useMotionValue, useSpring } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { Skills } from "@/components/Skills";
@@ -89,23 +90,32 @@ export default function About() {
                 />
               </div>
               <p className="font-medium ">
-               I don’t stick to just one lane—I build, create, and explore across multiple mediums. Whether it’s writing code, composing music, or designing systems, my work brings together different disciplines to find unique solutions. I believe in breaking down barriers and crafting systems where trust, compassion, and creativity can thrive. For me, it’s all about connecting ideas, people, and experiences to make the world a bit more fun, open, and full of possibilities.
+               I don’t stick to just one lane—I build, create, and explore across multiple mediums. Whether it’s writing code, composing music, or designing systems, my work involves bringing together different disciplines to find unique solutions. It’s all about connecting ideas, people, and experiences to make the world a bit more compassionate, open, and fun.
               
               </p>
-              <Link
-                  // whileHover={{
-                  //   cursor: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='font-size:24px;'><text y='50%'>👆</text></svg>"), auto`,
-                  // }}
-                  href="/work"
-                  className={`flex items-center mt-6 rounded-lg border-2 border-solid bg-dark p-2.5 px-6 text-lg font-semibold
-                  capitalize text-light hover:border-dark hover:bg-transparent hover:text-dark 
-                  dark:bg-light dark:text-dark dark:hover:border-light dark:hover:bg-dark dark:hover:text-light
-                  md:p-2 md:px-4 md:text-base
-                  `}
-                  download
+              <div className="mt-2 flex items-baseline self-start lg:self-center">
+                <Link
+                    // whileHover={{
+                    //   cursor: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='font-size:24px;'><text y='50%'>👆</text></svg>"), auto`,
+                    // }}
+                    href="/work"
+                    className={`flex items-center mt-6 rounded-lg border-2 border-solid bg-dark p-2.5 px-6 text-lg font-semibold
+                    capitalize text-light hover:border-dark hover:bg-transparent hover:text-dark 
+                    dark:bg-light dark:text-dark dark:hover:border-light dark:hover:bg-dark dark:hover:text-light
+                    md:p-2 md:px-4 md:text-base
+                    `}
+                    download
                 >
-                  Connect <LinkArrow className="ml-1 !w-6 md:!w-4" />
+                  Work <LinkArrow className="ml-1 !w-6 md:!w-4" />
                 </Link>
+                <Link
+                  href="/connect"
+                  className="ml-4 text-lg font-medium capitalize text-dark underline 
+                  dark:text-light md:text-base"
+                >
+                  Connect
+                </Link>
+              </div>
               {/* <p className="my-4 font-medium">
                 I’m a builder at heart—whether it’s creating code, composing music, or performing on stage. I thrive on mixing things up, bridging silos, and finding new ways to connect people through creativity. My work isn’t just about solving problems—it’s about playing with possibilities, exploring ideas, and making the world a more open and compassionate place. And yeah, I like to have fun while I’m at it.
               </p> */}
@@ -129,8 +139,8 @@ export default function About() {
               />
               <Image
                 className="h-auto w-full rounded-2xl"
-                src={profile}
-                alt="Codebucks"
+                src={profileAndRolig}
+                alt="J-Krush Profile"
                 sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
               33vw"
