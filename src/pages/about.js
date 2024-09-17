@@ -58,29 +58,28 @@ export default function About() {
           <div className="grid w-full grid-cols-8 gap-16 sm:gap-8">
             <div className="col-span-3 flex flex-col items-start justify-start xl:col-span-4 md:order-2 
             md:col-span-8">
-              <Typewriter
-                onInit={(typewriter) => {
-                  typewriter.typeString("I'm J-Krush")
-                    .callFunction(() => {
-                      console.log('String typed out!');
-                    })
-                    .pauseFor(2500)
-                    .deleteChars(6)
-                    .typeString("ohn Kreisher")
-                    .pauseFor(2500)
-                    .deleteChars(12)
-                    .start();
-                }}
-                options={{
-                  // strings: ["I'm J-Krush", "I'm John Kreisher"],
-                  // autoStart: true,
-                  loop: true,
-                  // delay: 50,
-                }}
-              />
-              <h2 className="mb-4 text-lg font-bold uppercase text-dark/75 dark:text-light/75">
-                I'm J-Krush
-              </h2>
+              <div className="h-8 mb-6">
+                <Typewriter
+                  className="mb-4 text-lg font-bold uppercase text-dark/75 dark:text-light/75"
+                  onInit={(typewriter) => {
+                    typewriter.typeString("<span style='font-size: 30px;line-height: 36px;font-weight: 700;'>I'm J-Krush</span>")
+                      .callFunction(() => {
+                        console.log('String typed out!');
+                      })
+                      .pauseFor(2500)
+                      .deleteChars(6)
+                      .typeString("<span style='font-size: 30px;line-height: 36px;font-weight: 600;'>ohn Kreisher</span>")
+                      .pauseFor(2500)
+                      .deleteChars(12)
+                      .start();
+                  }}
+                  options={{
+                    loop: true,
+                    cursor: "<span style='font-size: 30px;line-height: 36px;font-weight: 700;'>.</span>",
+                    className: "mb-4 text-lg font-bold uppercase text-dark/75 dark:text-light/75"
+                  }}
+                />
+              </div>
               <p className="font-medium ">
                I don’t stick to just one lane—I build, create, and explore across multiple mediums. Whether it’s writing code, composing music, or designing systems, my work brings together different disciplines to find unique solutions. I believe in breaking down barriers and crafting systems where trust, compassion, and creativity can thrive. For me, it’s all about connecting ideas, people, and experiences to make the world a bit more fun, open, and full of possibilities.
               
