@@ -83,10 +83,10 @@ export const handler = async (event, context) => {
       const endpointUrl = process.env.FORWARDING_ENDPOINT_URL; // Endpoint URL for forwarding the data
 
       // Convert formData object to URL-encoded string
-      const formBody = new URLSearchParams({ ...formData, formName }).toString();
+      const formBody = new URLSearchParams({ ...formData, "form-name": formName }).toString();
 
       // Forward the form data to the specified endpoint
-      const forwardResponse = await fetch(endpointUrl, {
+      const forwardResponse = await fetch("/", {
         method: "POST",
         body: formBody,
         headers: {
