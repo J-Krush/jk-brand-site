@@ -92,42 +92,30 @@ export const handler = async (event, context) => {
       // Convert formData object to URL-encoded string
       const formBody = new URLSearchParams({ ...formData, "form-name": formName }).toString();
 
-      // Forward the form data to the specified endpoint
-      const forwardResponse = await fetch("/", {
-        method: "POST",
-        body: formBody,
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      });
+      // console.log('formbody: ', formBody);
 
-      // const forwardResponse = await fetch(endpointUrl, {
+      // // Forward the form data to the specified endpoint
+      // const forwardResponse = await fetch("/", {
       //   method: "POST",
-      //   headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      //   body: encode({ 
-      //     "form-name": "contact-form",
-      //     name: formName,
-      //     phone: formPhone,
-      //     email: formEmail,
-      //     // subject: formSubject,
-      //     message: formMessage,
-      //     // "bot-field": formBotField
-      //   })
-      // })
+      //   body: formBody,
+      //   headers: {
+      //     "Content-Type": "application/x-www-form-urlencoded",
+      //   },
+      // });
 
-      // Check if data forwarding was successful
-      if (!forwardResponse.ok) {
-        throw new Error(`Error forwarding data: ${forwardResponse.status}`);
-      }
+      // // Check if data forwarding was successful
+      // if (!forwardResponse.ok) {
+      //   throw new Error(`Error forwarding data: ${forwardResponse.status}`);
+      // }
 
-      const forwardData = await forwardResponse.json();
+      // const forwardData = await forwardResponse.json();
 
       // Return the response from the endpoint
       return {
         statusCode: 200,
         headers: corsHeaders,
         body: JSON.stringify({
-          formResponse: forwardData,
+          formResponse: formBody, // forwardData
           threshold: scoreThreshold,
           details: verificationData,
         }),
