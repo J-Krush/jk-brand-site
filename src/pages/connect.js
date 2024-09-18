@@ -52,7 +52,7 @@ const ContactForm = () => {
         })
       });
 
-      console.log('fetch result: ', fetchResult);
+      console.log('fetch result: ', JSON.parse(fetchResult));
 
       if (fetchResult) {
         alert("Success!");
@@ -65,9 +65,9 @@ const ContactForm = () => {
     }
   }, [executeRecaptcha, formEmail, formMessage, formPhone, formUserName]);
 
-  useEffect(() => {
-    handleReCaptchaVerify();
-  }, [handleReCaptchaVerify]);
+  // useEffect(() => {
+  //   handleReCaptchaVerify();
+  // }, [handleReCaptchaVerify]);
 
   
     
