@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { GoogleReCaptchaProvider, GoogleReCaptcha } from "react-google-recaptcha-v3";
+import { useEffect, useState, useCallback } from 'react';
+import { GoogleReCaptchaProvider, GoogleReCaptcha, useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import AnimatedText from "@/components/AnimatedText";
 import Layout from "@/components/Layout";
 import TransitionEffect from "@/components/TransitionEffect";
@@ -14,6 +14,7 @@ const ContactForm = () => {
   // const [formBotField, setFormBotField] = useState("");
   const [formSubmitted, setFormSubmitted] = useState(false);
 
+  const { executeRecaptcha } = useGoogleReCaptcha();
   const [token, setToken] = useState("");
   const [refreshReCaptcha, setRefreshReCaptcha] = useState(false);
 
@@ -21,43 +22,21 @@ const ContactForm = () => {
     setToken(getToken);
   };
 
-  // const handleLoaded = _ => {
-  //   console.log('handle loaded');
-  //   window.grecaptcha.ready(_ => {
-  //     window.grecaptcha
-  //     .execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY, { action: "homepage" })
-  //     .then(token => {
-  //       console.log('token then: ', token);
-  //       setToken(token);
-  //     })
-  //   })
-  // };
+  // Create an event handler so you can call the verification on button click event or form submit
+  const handleReCaptchaVerify = useCallback(async () => {
+    console.log('handleReCaptchaVerify');
 
-  // useEffect(() => {
-    // console.log('site key: ', process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY);
-    // const script = document.createElement("script");
-    // script.src = `https://www.google.come/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`;
-    // script.addEventListener("load", handleLoaded);
-    // document.body.appendChild(script);
+    if (!executeRecaptcha) {
+      console.log('Execute recaptcha not yet available');
+      return;
+    }
 
-    // fetch(`https://www.google.come/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`)
-  // }, []);
-
-  
-    
-  const handleSubmit = async (e) => {
-
-    console.log('handle submit');
-    console.log('name: ', formUserName);
-    console.log('email: ', formEmail);
-    console.log('message: ', formMessage);
-    
-    e.preventDefault();
+    const token = await executeRecaptcha('yourAction');
+    // Do whatever you want with the token
+    console.log('token: ', token);
+    setToken(token);
 
     try {
-
-      // const token = await window.grecaptcha.execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY, { action: "submit" });
-
       const fetchResult = await fetch("https://jkrush.dev/.netlify/functions/recaptcha-verify", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -73,6 +52,8 @@ const ContactForm = () => {
         })
       });
 
+      console.log('fetch result: ', fetchResult);
+
       if (fetchResult) {
         alert("Success!");
         setFormSubmitted(true);
@@ -82,7 +63,25 @@ const ContactForm = () => {
       console.log('error: ', error);
       alert(error)
     }
-  };
+  }, [executeRecaptcha, formEmail, formMessage, formPhone, formUserName]);
+
+  useEffect(() => {
+    handleReCaptchaVerify();
+  }, [handleReCaptchaVerify]);
+
+  
+    
+  // const handleSubmit = useCallback(async (e) => {
+
+  //   console.log('handle submit');
+  //   console.log('name: ', formUserName);
+  //   console.log('email: ', formEmail);
+  //   console.log('message: ', formMessage);
+    
+  //   e.preventDefault();
+
+    
+  // });
 
   return (
     <article
@@ -91,11 +90,6 @@ border-solid border-dark bg-light p-12 shadow-2xl  dark:border-light dark:bg-dar
 lg:p-8 xs:rounded-2xl  xs:rounded-br-3xl xs:p-4 
     "
     >
-      {/* <div
-        className="g-recaptcha"
-        data-sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
-        data-size="invisible"
-      ></div> */}
       <div
         className="absolute  top-0 -right-3 -z-10 h-[103%] w-[101%] rounded-[2.5rem] rounded-br-3xl bg-dark
          dark:bg-light  xs:-right-2 xs:h-[102%] xs:w-[100%]
@@ -145,17 +139,16 @@ lg:p-8 xs:rounded-2xl  xs:rounded-br-3xl xs:p-4
             <button type="submit" className="rounded-lg
              bg-dark p-2 px-6 text-lg font-semibold text-light dark:bg-light dark:text-dark 
              sm:px-4 sm:text-base" 
-             onClick={(e) => handleSubmit(e)}
+             onClick={handleReCaptchaVerify}
              >
               Send Message
             </button>
-            <GoogleReCaptchaProvider reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}>
+            
               <GoogleReCaptcha
                 className="google-recaptcha-custom-class"
                 onVerify={setTokenFunc}
                 refreshReCaptcha={refreshReCaptcha}
               />
-            </GoogleReCaptchaProvider>
           </form>
         </div>
       </div>
@@ -176,12 +169,14 @@ export default function Connect() {
               text="Let's Connect"
               className="mb-8 !text-8xl !leading-tight lg:!text-7xl sm:mb-8 sm:!text-6xl xs:!text-4xl"
           />
-          <p className="font-medium mb-8 text-center">
+          <p className="font-medium text-lg mb-8 text-center">
                 I love collaborating. Got an idea or project? Let&apos;s make something awesome together!
           </p>
 
           <div className="flex w-full items-start justify-between md:flex-col">
-            <ContactForm/>
+            <GoogleReCaptchaProvider reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}>
+              <ContactForm/>
+            </GoogleReCaptchaProvider>
           </div>
         </Layout>
       </article>
