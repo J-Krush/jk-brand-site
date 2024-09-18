@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { GoogleReCaptchaProvider, GoogleReCaptcha } from "react-google-recaptcha-v3";
 import AnimatedText from "@/components/AnimatedText";
 import Layout from "@/components/Layout";
 import TransitionEffect from "@/components/TransitionEffect";
@@ -13,23 +14,36 @@ const ContactForm = () => {
   // const [formBotField, setFormBotField] = useState("");
   const [formSubmitted, setFormSubmitted] = useState(false);
 
-  useEffect(() => {
-    console.log('site key: ', process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY);
-    const script = document.createElement("script");
-    script.src = `https://www.google.come/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`;
-    script.addEventListener("load", handleLoaded);
-    document.body.appendChild(script);
-  }, [])
+  const [token, setToken] = useState("");
+  const [refreshReCaptcha, setRefreshReCaptcha] = useState(false);
 
-  const handleLoaded = _ => {
-    window.grecaptcha.ready(_ => {
-      window.grecaptcha
-      .execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY, { action: "homepage" })
-      .then(token => {
-        console.log('token then: ', token);
-      })
-    })
-  }
+  const setTokenFunc = (getToken) => {
+    setToken(getToken);
+  };
+
+  // const handleLoaded = _ => {
+  //   console.log('handle loaded');
+  //   window.grecaptcha.ready(_ => {
+  //     window.grecaptcha
+  //     .execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY, { action: "homepage" })
+  //     .then(token => {
+  //       console.log('token then: ', token);
+  //       setToken(token);
+  //     })
+  //   })
+  // };
+
+  // useEffect(() => {
+    // console.log('site key: ', process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY);
+    // const script = document.createElement("script");
+    // script.src = `https://www.google.come/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`;
+    // script.addEventListener("load", handleLoaded);
+    // document.body.appendChild(script);
+
+    // fetch(`https://www.google.come/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`)
+  // }, []);
+
+  
     
   const handleSubmit = async (e) => {
 
@@ -42,7 +56,7 @@ const ContactForm = () => {
 
     try {
 
-      const token = await grecaptcha.execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY, { action: "submit" });
+      // const token = await window.grecaptcha.execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY, { action: "submit" });
 
       const fetchResult = await fetch("https://jkrush.dev/.netlify/functions/recaptcha-verify", {
         method: "POST",
@@ -77,11 +91,11 @@ border-solid border-dark bg-light p-12 shadow-2xl  dark:border-light dark:bg-dar
 lg:p-8 xs:rounded-2xl  xs:rounded-br-3xl xs:p-4 
     "
     >
-      <div
+      {/* <div
         className="g-recaptcha"
         data-sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
         data-size="invisible"
-      ></div>
+      ></div> */}
       <div
         className="absolute  top-0 -right-3 -z-10 h-[103%] w-[101%] rounded-[2.5rem] rounded-br-3xl bg-dark
          dark:bg-light  xs:-right-2 xs:h-[102%] xs:w-[100%]
@@ -135,6 +149,13 @@ lg:p-8 xs:rounded-2xl  xs:rounded-br-3xl xs:p-4
              >
               Send Message
             </button>
+            <GoogleReCaptchaProvider reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}>
+              <GoogleReCaptcha
+                className="google-recaptcha-custom-class"
+                onVerify={setTokenFunc}
+                refreshReCaptcha={refreshReCaptcha}
+              />
+            </GoogleReCaptchaProvider>
           </form>
         </div>
       </div>
@@ -166,4 +187,4 @@ export default function Connect() {
       </article>
     </>
   );
-}
+};
