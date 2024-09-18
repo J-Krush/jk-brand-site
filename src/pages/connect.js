@@ -30,23 +30,22 @@ const ContactForm = () => {
 
   // Create an event handler so you can call the verification on button click event or form submit
   const handleReCaptchaVerify = useCallback(async () => {
-    console.log('handleReCaptchaVerify');
-
     if (!executeRecaptcha) {
       console.log('Execute recaptcha not yet available');
       return;
     }
 
     const token = await executeRecaptcha('yourAction');
-    // Do whatever you want with the token
-    console.log('token: ', token);
+
     setToken(token);
 
   }, [executeRecaptcha]);
 
   useEffect(() => {
-    handleReCaptchaVerify();
-  }, [handleReCaptchaVerify]);
+    if (!token) {
+      handleReCaptchaVerify();
+    }
+  }, [handleReCaptchaVerify, token]);
 
   
     
