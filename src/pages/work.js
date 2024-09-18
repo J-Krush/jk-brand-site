@@ -95,7 +95,7 @@ export default function Work() {
               <Project
                 subtitle="Integrated with NASA Planetary API"
                 title="Astrological Calculator"
-                img={proj2}
+                img={undefined}
                 link="#" // link to section of the work page
               />
             </div>
@@ -103,7 +103,7 @@ export default function Work() {
               <Project
                 subtitle="AWS SES Serverless Function"
                 title="Email Sender"
-                img={proj3}
+                img={undefined}
                 link="https://github.com/J-Krush/genius-facilitate-email-service"
                 github="https://github.com/J-Krush/genius-facilitate-email-service"
               />
