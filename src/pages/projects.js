@@ -5,12 +5,6 @@ import { motion } from "framer-motion";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import proj1 from "../../public/images/projects/crypto-screener-cover-image.jpg";
-import proj2 from "../../public/images/projects/nft-collection-website-cover-image.jpg";
-import proj3 from "../../public/images/projects/fashion-studio-website.jpg";
-import proj4 from "../../public/images/projects/portfolio-cover-image.jpg";
-import proj5 from "../../public/images/projects/agency-website-cover-image.jpg";
-import proj6 from "../../public/images/projects/devdreaming.jpg";
 import TransitionEffect from "@/components/TransitionEffect";
 
 const FramerImage = motion(Image);
@@ -199,7 +193,7 @@ export default function Projects() {
               <Project
                 type="Website Template"
                 title="NFT collection Website"
-                img={proj2}
+                img={undefined}
                 link="https://devdreaming.com/videos/create-nft-collection-website-reactjs"
                 github="https://github.com/codebucks27/The-Weirdos-NFT-Website-Starter-Code"
               />
@@ -208,7 +202,7 @@ export default function Projects() {
               <Project
                 type="Website"
                 title="Fashion Studio Website"
-                img={proj3}
+                img={undefined}
                 link="https://devdreaming.com/videos/build-stunning-fashion-studio-website-with-reactJS-locomotive-scroll-gsap"
                 github="https://github.com/codebucks27/wibe-studio"
               />
@@ -218,7 +212,7 @@ export default function Projects() {
                 type="Portfolio Website"
                 title="React Portfolio Website"
                 summary="A professional portfolio website using React JS, Framer-motion, and Styled-components. It has smooth page transitions, cool background effects, unique design and it is mobile responsive."
-                img={proj4}
+                img={undefined}
                 link="https://devdreaming.com/videos/build-stunning-portfolio-website-react-js-framer-motion"
                 github="https://github.com/codebucks27/react-portfolio-final"
               />
@@ -226,7 +220,7 @@ export default function Projects() {
             <div className="col-span-6 sm:col-span-12">
               <Project
                 type="Website Template"
-                img={proj5}
+                img={undefined}
                 title="Agency Website Template"
                 link="https://devdreaming.com/videos/build-stunning-fashion-studio-website-with-reactJS-locomotive-scroll-gsap"
                 github="https://github.com/codebucks27/wibe-studio"
@@ -235,7 +229,7 @@ export default function Projects() {
             <div className="col-span-6 sm:col-span-12">
               <Project
                 type="Blog Website"
-                img={proj6}
+                img={undefined}
                 title="DevDreaming"
                 link="https://devdreaming.com"
                 github="https://github.com/codebucks27"
