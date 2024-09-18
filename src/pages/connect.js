@@ -53,6 +53,8 @@ const ContactForm = () => {
     
     e.preventDefault();
 
+    
+
     try {
       const fetchResult = await fetch("https://jkrush.dev/.netlify/functions/recaptcha-verify", {
         method: "POST",
@@ -71,7 +73,25 @@ const ContactForm = () => {
 
       console.log('fetch results: ', fetchResult);
 
-      console.log('fetch result JSON: ', JSON.parse(fetchResult));
+      console.log('fetch result JSON: ', JSON.parse(fetchResult.body));
+
+
+      const netlifySubmit = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({ 
+            "form-name": "contact-form",
+            name: formUserName,
+            phone: formPhone,
+            email: formEmail,
+    // subject: formSubject,
+            message: formMessage,
+            // "bot-field": formBotField
+        })
+      })
+
+      console.log('netlify submit results: ', netlifySubmit);
+
 
       if (fetchResult) {
         alert("Success!");
