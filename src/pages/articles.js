@@ -2,14 +2,6 @@ import AnimatedText from "@/components/AnimatedText";
 import { motion, useMotionValue } from "framer-motion";
 import Head from "next/head";
 import Image from "next/image";
-import blog1 from "../../public/images/articles/pagination component in reactjs.jpg";
-import blog2 from "../../public/images/articles/create loading screen in react js.jpg";
-import blog3 from "../../public/images/articles/form validation in reactjs using custom react hook.png";
-import blog4 from "../../public/images/articles/smooth scrolling in reactjs.png";
-import blog5 from "../../public/images/articles/create modal component in react using react portals.png";
-import blog6 from "../../public/images/articles/todo list app built using react redux and framer motion.png";
-import blog7 from "../../public/images/articles/What is Redux with easy explanation.png";
-import blog8 from "../../public/images/articles/What is higher order component in React.jpg";
 
 import Layout from "@/components/Layout";
 import Link from "next/link";
@@ -144,7 +136,7 @@ export default function Articles() {
 
           <ul className="grid grid-cols-2 gap-16 lg:gap-8 md:grid-cols-1 md:gap-y-16">
             <FeaturedArticle
-              img={blog1}
+              img={undefined}
               title="build a custom pagination component in reactjs from scratch"
               time="9 min read"
               summary="Learn how to build a custom pagination component in ReactJS from scratch. Follow this 
@@ -153,7 +145,7 @@ export default function Articles() {
             />
 
             <FeaturedArticle
-              img={blog2}
+              img={undefined}
               title="creating stunning loading screens in react: Build 3 types of loading screens"
               time="10 min read"
               summary="Learn how to create stunning loading screens in React with 3 different methods. 
@@ -170,38 +162,38 @@ export default function Articles() {
           <ul className="flex flex-col items-center relative">
             <Article
               title="form validation in reactjs: build a reusable custom hook for inputs and error handling"
-              img={blog3}
+              img={undefined}
               date="January 27, 2023"
               link="https://devdreaming.com/blogs/react-form-validation-custom-hook"
             />
             <Article
               title="silky smooth scrolling in reactjs: a step-by-step guide for react developers"
-              img={blog4}
+              img={undefined}
               date="January 30, 2023"
               link="https://devdreaming.com/blogs/smooth-scrolling-in-react-js"
             />
             <Article
               title="creating an efficient modal component in react using hooks and portals"
-              img={blog5}
+              img={undefined}
               date="January 29, 2023"
               link="https://devdreaming.com/blogs/create-efficient-modal-react-portals"
             />
             <Article
               title="build a fabulous todo list app with react, redux and framer-motion"
-              img={blog6}
+              img={undefined}
               date="January 28, 2023"
               link="https://devdreaming.com/blogs/build-react-redux-framer-motion-todo-app"
             />
             <Article
               title="redux simplified: a beginner's guide for web developers"
-              img={blog7}
+              img={undefined}
               date="January 31, 2023"
               link="https://devdreaming.com/blogs/redux-simply-explained"
             />
             <Article
               title="what is higher order component (hoc) in react?"
               date="January 4, 2023"
-              img={blog8}
+              img={undefined}
               link="https://devdreaming.com/blogs/higher-order-component-hoc-react"
             />
           </ul>
