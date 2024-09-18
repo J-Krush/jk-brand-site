@@ -36,11 +36,23 @@ const ContactForm = () => {
     console.log('token: ', token);
     setToken(token);
 
-    if (!formUserName) {
-      return 
-    }
+  }, [executeRecaptcha]);
 
-    console.log('recaptcha verify')
+  useEffect(() => {
+    handleReCaptchaVerify();
+  }, [handleReCaptchaVerify]);
+
+  
+    
+  const handleSubmit = async (e) => {
+
+    console.log('handle submit');
+    console.log('name: ', formUserName);
+    console.log('email: ', formEmail);
+    console.log('message: ', formMessage);
+    
+    e.preventDefault();
+
     try {
       const fetchResult = await fetch("https://jkrush.dev/.netlify/functions/recaptcha-verify", {
         method: "POST",
@@ -68,25 +80,7 @@ const ContactForm = () => {
       console.log('error: ', error);
       alert(error)
     }
-  }, [executeRecaptcha, formEmail, formMessage, formPhone, formUserName]);
-
-  useEffect(() => {
-    handleReCaptchaVerify();
-  }, [handleReCaptchaVerify]);
-
-  
-    
-  // const handleSubmit = useCallback(async (e) => {
-
-  //   console.log('handle submit');
-  //   console.log('name: ', formUserName);
-  //   console.log('email: ', formEmail);
-  //   console.log('message: ', formMessage);
-    
-  //   e.preventDefault();
-
-    
-  // });
+  };
 
   return (
     <article
@@ -144,7 +138,7 @@ lg:p-8 xs:rounded-2xl  xs:rounded-br-3xl xs:p-4
             <button type="submit" className="rounded-lg
              bg-dark p-2 px-6 text-lg font-semibold text-light dark:bg-light dark:text-dark 
              sm:px-4 sm:text-base" 
-             onClick={handleReCaptchaVerify}
+             onClick={(e) => handleSubmit(e)}
              >
               Send Message
             </button>
