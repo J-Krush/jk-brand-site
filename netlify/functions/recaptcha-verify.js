@@ -1,9 +1,11 @@
 import fetch from "node-fetch";
 import * as dotenv from "dotenv";
 
-dotenv.config()
+dotenv.config();
 
-const handler = async (event, context) => {
+export const handler = async (event, context) => {
+
+  console.log('handler event: ', event);
 
   // Use environment variables for CORS origin and score threshold
   const mySiteUrl = process.env.MY_SITE_URL || "*"; // Fallback to '*' if not set
@@ -148,5 +150,3 @@ const handler = async (event, context) => {
     };
   }
 };
-
-module.exports.handler = handler;
