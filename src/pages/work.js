@@ -5,13 +5,6 @@ import Layout from "@/components/Layout";
 import Head from "next/head";
 import { Project, FeaturedProject } from "@/components/Project";
 
-import proj1 from "../../public/images/projects/crypto-screener-cover-image.jpg";
-import proj2 from "../../public/images/projects/nft-collection-website-cover-image.jpg";
-import proj3 from "../../public/images/projects/fashion-studio-website.jpg";
-import proj4 from "../../public/images/projects/portfolio-cover-image.jpg";
-import proj5 from "../../public/images/projects/agency-website-cover-image.jpg";
-import proj6 from "../../public/images/projects/devdreaming.jpg";
-
 import geniusFrequencySite from "../../public/images/projects/genius-frequency-site-hero.png";
 import shapesmithStudioSite from "../../public/images/projects/shapesmith-studio-site-hero.png";
 import zuriFertilitySite from "../../public/images/projects/zuri-fertility-site-hero.png";
