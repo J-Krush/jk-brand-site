@@ -3,7 +3,7 @@ import * as dotenv from "dotenv";
 
 dotenv.config()
 
-export const handler = async (event, context) => {
+const handler = async (event, context) => {
 
   // Use environment variables for CORS origin and score threshold
   const mySiteUrl = process.env.MY_SITE_URL || "*"; // Fallback to '*' if not set
@@ -148,3 +148,5 @@ export const handler = async (event, context) => {
     };
   }
 };
+
+module.exports.handler = handler;
