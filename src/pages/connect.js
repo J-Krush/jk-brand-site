@@ -32,7 +32,7 @@ const ContactForm = () => {
     fetch("https://jkrush.dev/.netlify/functions/recaptcha-verify", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ 
+        body: JSON.stringify({ 
           formName: "contact-form",
           name: formUserName,
           phone: formPhone,
