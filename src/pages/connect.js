@@ -108,8 +108,9 @@ lg:p-8 xs:rounded-2xl  xs:rounded-br-3xl xs:p-4
 
             <button type="submit" className="rounded-lg
              bg-dark p-2 px-6 text-lg font-semibold text-light dark:bg-light dark:text-dark 
-             sm:px-4 sm:text-base
-            ">
+             sm:px-4 sm:text-base" 
+             onClick={() => handleSubmit()}
+             >
               Send Message
             </button>
           </form>
