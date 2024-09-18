@@ -5,8 +5,6 @@ dotenv.config();
 
 export const handler = async (event, context) => {
 
-  console.log('handler event: ', event);
-
   // Use environment variables for CORS origin and score threshold
   const mySiteUrl = process.env.MY_SITE_URL || "*"; // Fallback to '*' if not set
   const scoreThreshold = parseFloat(process.env.SCORE_THRESHOLD) || 0.3; // Default to 0.3 if not set
@@ -19,6 +17,8 @@ export const handler = async (event, context) => {
     "Access-Control-Max-Age": "86400", // Cache preflight request for 86400 seconds
   };
 
+  console.log('cors headers: ', corsHeaders);
+  
   // Handle OPTIONS request for CORS preflight
   if (event.httpMethod === "OPTIONS") {
     return {
@@ -52,6 +52,8 @@ export const handler = async (event, context) => {
     }
 
     const secretKey = process.env.RECAPTCHA_SECRET_KEY; // Retrieve secret key from environment variables
+
+    console.log('secret key: ', secretKey.substring(0,5));
 
     // Perform ReCAPTCHA verification
     const verificationResponse = await fetch(
