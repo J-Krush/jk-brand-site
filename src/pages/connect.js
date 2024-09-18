@@ -3,7 +3,6 @@ import AnimatedText from "@/components/AnimatedText";
 import Layout from "@/components/Layout";
 import TransitionEffect from "@/components/TransitionEffect";
 
-
 const ContactForm = () => {
 
   const [formUserName, setFormUserName] = useState("");
@@ -15,22 +14,17 @@ const ContactForm = () => {
   const [formSubmitted, setFormSubmitted] = useState(false);
 
   useEffect(() => {
+    console.log('site key: ', process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY);
     const script = document.createElement("script");
-    script.src = `https://www.google.come/recaptcha/api.js?render=${process.env.RECAPTCHA_SITE_KEY}`;
+    script.src = `https://www.google.come/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`;
     script.addEventListener("load", handleLoaded);
     document.body.appendChild(script);
-  })
-
-	const encode = (data) => {
-    return Object.keys(data)
-        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-        .join("&");
-  }
+  }, [])
 
   const handleLoaded = _ => {
     window.grecaptcha.ready(_ => {
       window.grecaptcha
-      .execute(process.env.RECAPTCHA_SITE_KEY, { action: "homepage" })
+      .execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY, { action: "homepage" })
       .then(token => {
         console.log('token then: ', token);
       })
@@ -48,7 +42,7 @@ const ContactForm = () => {
 
     try {
 
-      const token = await grecaptcha.execute(process.env.RECAPTCHA_SITE_KEY, { action: "submit" });
+      const token = await grecaptcha.execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY, { action: "submit" });
 
       const fetchResult = await fetch("https://jkrush.dev/.netlify/functions/recaptcha-verify", {
         method: "POST",
@@ -85,7 +79,7 @@ lg:p-8 xs:rounded-2xl  xs:rounded-br-3xl xs:p-4
     >
       <div
         className="g-recaptcha"
-        data-sitekey={process.env.RECAPTCHA_SITE_KEY}
+        data-sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
         data-size="invisible"
       ></div>
       <div
