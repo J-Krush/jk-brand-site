@@ -22,6 +22,12 @@ const ContactForm = () => {
     setToken(getToken);
   };
 
+  const encode = (data) => {
+    return Object.keys(data)
+        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+        .join("&");
+}
+
   // Create an event handler so you can call the verification on button click event or form submit
   const handleReCaptchaVerify = useCallback(async () => {
     console.log('handleReCaptchaVerify');
@@ -71,9 +77,9 @@ const ContactForm = () => {
         })
       });
 
-      console.log('fetch results: ', fetchResult);
+      console.log('fetch results: ', fetchResult.json());
 
-      console.log('fetch result body: ', fetchResult.body);
+      // console.log('fetch result body: ', fetchResult.body);
 
 
       const netlifySubmit = await fetch("/", {
