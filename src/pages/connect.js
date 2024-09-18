@@ -73,7 +73,7 @@ const ContactForm = () => {
 
       console.log('fetch results: ', fetchResult);
 
-      console.log('fetch result JSON: ', JSON.parse(fetchResult.body));
+      console.log('fetch result body: ', fetchResult.body);
 
 
       const netlifySubmit = await fetch("/", {
