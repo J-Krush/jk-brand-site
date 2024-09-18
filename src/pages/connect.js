@@ -127,6 +127,7 @@ lg:p-8 xs:rounded-2xl  xs:rounded-br-3xl xs:p-4
       <div className="animate-on-scroll w-full">
         <div className="pt-6">
           <form className="space-y-4">
+            <input type="hidden" name="form-name" value="contact-form" />
             <div>
               <label htmlFor="name" className="block text-sm font-medium mb-1">Name</label>
               <input
