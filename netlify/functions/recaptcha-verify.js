@@ -77,11 +77,11 @@ export const handler = async (event, context) => {
 
     if (verificationData.success && verificationData.score >= scoreThreshold) {
       const formData = body.formData; // Extract form data from the request body
-      const formName = body.formName; // "contact"
-      const endpointUrl = process.env.ENDPOINT_URL; // Endpoint URL for forwarding the data
+      const formName = body.formName; // "contact-form"
+      const endpointUrl = process.env.FORWARDING_ENDPOINT_URL; // Endpoint URL for forwarding the data
 
       // Convert formData object to URL-encoded string
-      const formBody = new URLSearchParams({ ...formData, formName,  }).toString();
+      const formBody = new URLSearchParams({ ...formData, formName }).toString();
 
       // Forward the form data to the specified endpoint
       const forwardResponse = await fetch(endpointUrl, {
@@ -91,6 +91,20 @@ export const handler = async (event, context) => {
           "Content-Type": "application/x-www-form-urlencoded",
         },
       });
+
+      // const forwardResponse = await fetch(endpointUrl, {
+      //   method: "POST",
+      //   headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      //   body: encode({ 
+      //     "form-name": "contact-form",
+      //     name: formName,
+      //     phone: formPhone,
+      //     email: formEmail,
+      //     // subject: formSubject,
+      //     message: formMessage,
+      //     // "bot-field": formBotField
+      //   })
+      // })
 
       // Check if data forwarding was successful
       if (!forwardResponse.ok) {

@@ -6,12 +6,12 @@ import TransitionEffect from "@/components/TransitionEffect";
 
 const ContactForm = () => {
 
-  const [formName, setFormName] = useState("");
+  const [formUserName, setFormUserName] = useState("");
   const [formPhone, setFormPhone] = useState("");
   const [formEmail, setFormEmail] = useState("");
-	const [formSubject, setFormSubject] = useState("");
+	// const [formSubject, setFormSubject] = useState("");
   const [formMessage, setFormMessage] = useState("");
-  const [formBotField, setFormBotField] = useState("");
+  // const [formBotField, setFormBotField] = useState("");
   const [formSubmitted, setFormSubmitted] = useState(false);
 
 	const encode = (data) => {
@@ -23,23 +23,23 @@ const ContactForm = () => {
   const handleSubmit = e => {
 
     console.log('handle submit');
-    console.log('name: ', formName);
+    console.log('name: ', formUserName);
     console.log('email: ', formEmail);
     console.log('message: ', formMessage);
     
     e.preventDefault();
 
-    fetch("https://jkrush.dev/", {
+    fetch("https://jkrush.dev/.netlify/functions/recaptcha-verify", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({ 
-          "form-name": "contact-form",
-          name: formName,
+          formName: "contact-form",
+          name: formUserName,
           phone: formPhone,
           email: formEmail,
-          subject: formSubject,
+          // subject: formSubject,
           message: formMessage,
-          "bot-field": formBotField
+          // "bot-field": formBotField
         })
       })
         .then(() => {
@@ -74,7 +74,7 @@ lg:p-8 xs:rounded-2xl  xs:rounded-br-3xl xs:p-4
                 id="name"
                 placeholder="Your Name"
                 className="w-full rounded-lg p-3 text-dark" 
-                onChange={(e) => setFormName(e.target.value)}
+                onChange={(e) => setFormUserName(e.target.value)}
               />
             </div>
             <div>
