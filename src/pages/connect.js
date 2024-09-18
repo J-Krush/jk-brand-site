@@ -169,11 +169,11 @@ lg:p-8 xs:rounded-2xl  xs:rounded-br-3xl xs:p-4
               Send Message
             </button>
             
-              <GoogleReCaptcha
+              {/* <GoogleReCaptcha
                 className="google-recaptcha-custom-class"
                 onVerify={setTokenFunc}
                 refreshReCaptcha={refreshReCaptcha}
-              />
+              /> */}
           </form>
         </div>
       </div>
