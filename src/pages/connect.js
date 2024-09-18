@@ -36,6 +36,11 @@ const ContactForm = () => {
     console.log('token: ', token);
     setToken(token);
 
+    if (!formUserName) {
+      return 
+    }
+
+    console.log('recaptcha verify')
     try {
       const fetchResult = await fetch("https://jkrush.dev/.netlify/functions/recaptcha-verify", {
         method: "POST",
@@ -65,9 +70,9 @@ const ContactForm = () => {
     }
   }, [executeRecaptcha, formEmail, formMessage, formPhone, formUserName]);
 
-  // useEffect(() => {
-  //   handleReCaptchaVerify();
-  // }, [handleReCaptchaVerify]);
+  useEffect(() => {
+    handleReCaptchaVerify();
+  }, [handleReCaptchaVerify]);
 
   
     
