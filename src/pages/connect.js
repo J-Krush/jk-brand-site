@@ -69,7 +69,9 @@ const ContactForm = () => {
         })
       });
 
-      console.log('fetch result: ', JSON.parse(fetchResult));
+      console.log('fetch results: ', fetchResult);
+
+      console.log('fetch result JSON: ', JSON.parse(fetchResult));
 
       if (fetchResult) {
         alert("Success!");
@@ -77,7 +79,7 @@ const ContactForm = () => {
       }
 
     } catch (error) {
-      console.log('error: ', error);
+      console.log('frontend error: ', error);
       alert(error)
     }
   };
