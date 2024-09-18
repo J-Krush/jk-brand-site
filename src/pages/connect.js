@@ -77,12 +77,14 @@ const ContactForm = () => {
         })
       });
 
-      console.log('fetch results: ', fetchResult.json());
+      const results = await fetchResult.json();
+
+      console.log('fetch results: ', results);
 
       // console.log('fetch result body: ', fetchResult.body);
 
 
-      const netlifySubmit = await fetch("/", {
+      const netlifySubmit = await fetch("https://jkrush.dev/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({ 
