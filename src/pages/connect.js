@@ -42,10 +42,8 @@ const ContactForm = () => {
   }, [executeRecaptcha]);
 
   useEffect(() => {
-    if (!token) {
-      handleReCaptchaVerify();
-    }
-  }, [handleReCaptchaVerify, token]);
+    handleReCaptchaVerify();
+  }, [handleReCaptchaVerify]);
 
   
     
