@@ -52,15 +52,13 @@ const ContactForm = () => {
     
   const handleSubmit = async (e) => {
 
+    e.preventDefault();
+
     console.log('handle submit');
     console.log('name: ', formUserName);
     console.log('email: ', formEmail);
     console.log('message: ', formMessage);
     
-    e.preventDefault();
-
-    
-
     try {
       const fetchResult = await fetch("https://jkrush.dev/.netlify/functions/recaptcha-verify", {
         method: "POST",
@@ -84,7 +82,7 @@ const ContactForm = () => {
       // console.log('fetch result body: ', fetchResult.body);
 
 
-      const netlifySubmit = await fetch("https://jkrush.dev/", {
+      const netlifySubmit = await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({ 
@@ -126,7 +124,7 @@ lg:p-8 xs:rounded-2xl  xs:rounded-br-3xl xs:p-4
       /> {/* card shadow */}
       <div className="animate-on-scroll w-full">
         <div className="pt-6">
-          <form className="space-y-4">
+          <form className="space-y-4" netlify>
             <input type="hidden" name="form-name" value="contact-form" />
             <div>
               <label htmlFor="name" className="block text-sm font-medium mb-1">Name</label>
