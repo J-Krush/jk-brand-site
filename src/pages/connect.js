@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import AnimatedText from "@/components/AnimatedText";
 import Layout from "@/components/Layout";
 import TransitionEffect from "@/components/TransitionEffect";
@@ -14,13 +14,30 @@ const ContactForm = () => {
   // const [formBotField, setFormBotField] = useState("");
   const [formSubmitted, setFormSubmitted] = useState(false);
 
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = `https://www.google.come/recaptcha/api.js?render=${process.env.RECAPTCHA_SITE_KEY}`;
+    script.addEventListener("load", handleLoaded);
+    document.body.appendChild(script);
+  })
+
 	const encode = (data) => {
     return Object.keys(data)
         .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
         .join("&");
   }
+
+  const handleLoaded = _ => {
+    window.grecaptcha.ready(_ => {
+      window.grecaptcha
+      .execute(process.env.RECAPTCHA_SITE_KEY, { action: "homepage" })
+      .then(token => {
+        console.log('token then: ', token);
+      })
+    })
+  }
     
-  const handleSubmit = e => {
+  const handleSubmit = async (e) => {
 
     console.log('handle submit');
     console.log('name: ', formUserName);
@@ -29,10 +46,15 @@ const ContactForm = () => {
     
     e.preventDefault();
 
-    fetch("https://jkrush.dev/.netlify/functions/recaptcha-verify", {
+    try {
+
+      const token = await grecaptcha.execute(process.env.RECAPTCHA_SITE_KEY, { action: "submit" });
+
+      const fetchResult = await fetch("https://jkrush.dev/.netlify/functions/recaptcha-verify", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: JSON.stringify({ 
+        body: JSON.stringify({
+          token,
           formName: "contact-form",
           name: formUserName,
           phone: formPhone,
@@ -41,16 +63,17 @@ const ContactForm = () => {
           message: formMessage,
           // "bot-field": formBotField
         })
-      })
-        .then(() => {
-        // console.log('success');
+      });
+
+      if (fetchResult) {
         alert("Success!");
         setFormSubmitted(true);
-      })
-        .catch(error => {
-        console.log('error: ', error);
-        alert(error)
-      });
+      }
+
+    } catch (error) {
+      console.log('error: ', error);
+      alert(error)
+    }
   };
 
   return (
@@ -60,6 +83,11 @@ border-solid border-dark bg-light p-12 shadow-2xl  dark:border-light dark:bg-dar
 lg:p-8 xs:rounded-2xl  xs:rounded-br-3xl xs:p-4 
     "
     >
+      <div
+        className="g-recaptcha"
+        data-sitekey={process.env.RECAPTCHA_SITE_KEY}
+        data-size="invisible"
+      ></div>
       <div
         className="absolute  top-0 -right-3 -z-10 h-[103%] w-[101%] rounded-[2.5rem] rounded-br-3xl bg-dark
          dark:bg-light  xs:-right-2 xs:h-[102%] xs:w-[100%]
