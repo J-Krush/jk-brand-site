@@ -21,6 +21,7 @@ export const handler = async (event, context) => {
   
   // Handle OPTIONS request for CORS preflight
   if (event.httpMethod === "OPTIONS") {
+    console.log('event method is options');
     return {
       statusCode: 204, // No content response for preflight
       headers: corsHeaders,
@@ -30,6 +31,7 @@ export const handler = async (event, context) => {
 
   // Restrict to POST requests only
   if (event.httpMethod !== "POST") {
+    console.log('event method is not post');
     return {
       statusCode: 405, // Method not allowed
       headers: corsHeaders,
@@ -41,6 +43,9 @@ export const handler = async (event, context) => {
     // Parse the JSON body of the request
     const body = JSON.parse(event.body);
     const token = body.token; // Extract the ReCAPTCHA token
+
+    console.log('body: ', body);
+    console.log('token: ', token);
 
     // Check for the presence of the ReCAPTCHA token
     if (!token) {
