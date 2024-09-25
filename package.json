@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@material-tailwind/react": "^2.1.10",
     "dotenv": "^16.4.5",
     "eslint": "^8.35.0",
     "eslint-config-next": "^13.2.1",
