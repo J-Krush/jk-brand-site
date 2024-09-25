@@ -1,15 +1,21 @@
+import Head from "next/head";
+import Image from "next/image";
+import Link from "next/link";
 import Typewriter from 'typewriter-effect';
+
 import AnimatedText from "@/components/AnimatedText";
 import { HireMe } from "@/components/HireMe";
 import { LinkArrow } from "@/components/Icons";
 import Layout from "@/components/Layout";
-import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
+import { Project } from "@/components/Project";
+import TransitionEffect from "@/components/TransitionEffect";
+
 import lightBulb from "../../public/images/svgs/miscellaneous_icons_1.svg";
 import profilePic from "../../public/images/profile/creator-maker-in-nature-v2.png";
-import TransitionEffect from "@/components/TransitionEffect";
-import Background from "@/components/Background"
+import softwareImage from "../../public/images/projects/magicstudio-computer-engineer.jpeg";
+import flowcraftMediaSite from "../../public/images/projects/flowcraft-media-site-hero.png"
+import shapesmithStudioSite from "../../public/images/projects/shapesmith-studio-site-hero.png";
+
 
 export default function Home() {
   
@@ -93,6 +99,47 @@ export default function Home() {
                   About
                 </Link>
               </div>
+            </div>
+          </div>
+          
+          <h3 className="mb-8 font-bold text-6xl mt-64 w-full text-center md:text-4xl sm:!text-2xl md:mt-32">
+            My Businesses
+          </h3> 
+          <p className="font-medium mb-8 text-center">
+            Wearing many hats, but they all fit
+          </p>
+          <div className="grid grid-cols-12 gap-24 gap-y-12 xl:gap-x-16 lg:gap-x-8 md:gap-y-24 sm:gap-x-0">
+            <div className="col-span-4 sm:col-span-12">
+              <Project
+                subtitle="Full Stack Software Development & Consulting"
+                title="J-Krush Software Consulting"
+                img={softwareImage}
+                link="/work"
+                newTab={false}
+                imageOnTop={false}
+                showVisitButton={false}
+              />
+            </div>
+            <div className="col-span-4 sm:col-span-12">
+              <Project
+                subtitle="Drone Cinematography"
+                title="Flowcraft Media"
+                img={flowcraftMediaSite}
+                link="https://flowcraft-media-main.webflow.io/coming-soon"
+                imageOnTop={false}
+                showVisitButton={false}
+              />
+            </div>
+            <div className="col-span-4 sm:col-span-12">
+              <Project
+                subtitle="Laser Cutting and Maker Studio"
+                title="Shapesmith Studio"
+                summary=""
+                img={shapesmithStudioSite}
+                link="https://shapesmith.studio"
+                imageOnTop={false}
+                showVisitButton={false}
+              />
             </div>
           </div>
         </Layout>

@@ -31,12 +31,12 @@ const Skills = () => {
         Skills
       </h2>
 
-      <div class="flex items-center justify-center">
-        <div class="inline-flex rounded-md shadow-sm" role="group">
+      <div className="flex items-center justify-center mb-12">
+        <div className="inline-flex rounded-md shadow-sm" role="group">
           <button
             type="button"
             onClick={() => setVisibleSkills('software')}
-            class={`px-4 py-2 text-sm font-medium bg-transparent border border-gray-900 rounded-s-lg 
+            className={`px-4 py-2 text-sm font-medium bg-transparent border border-gray-900 rounded-s-lg 
             hover:bg-gray-900 hover:text-white 
             ${visibleSkills === 'software' ? "text-white z-10 ring-2 ring-gray-500 bg-gray-900 dark:text-gray-900 dark:bg-white" : "text-gray-900 dark:text-white"}
             dark:border-white
@@ -128,19 +128,19 @@ const CreativeSkills = () => {
 
           <Skill name="Videography" x="0vw" y="-20vw" />
           <Skill name="Adobe Illustrator" x="-25vw" y="18vw" />
-          <Skill name="Davinci Resolve" x="-5vw" y="-10vw" />
+          <Skill name="AcroYoga Instructor" x="-5vw" y="-10vw" />
           <Skill name="Drone Cinematography" x="15vw" y="-12vw" />
           <Skill name="Violinist" x="-20vw" y="2vw" />
           <Skill name="Guitar Player" x="20vw" y="6vw" />
           <Skill name="Bass Player" x="0vw" y="12vw" />
 
-          <Skill name="AcroYoga Instructor" x="0vw" y="24vw" />
-          <Skill name="Circus Performer" x="20vw" y="28vw" />
+          <Skill name="Davinci Resolve" x="0vw" y="24vw" />
+          <Skill name="3D Modeling" x="20vw" y="28vw" />
           <Skill name="Music Producer" x="-20vw" y="-15vw" />
           <Skill name="Dance Choreographer" x="-15vw" y="-28vw" />
           
-          <Skill name="3D Modeling" x="20vw" y="-24vw" />
-
+          <Skill name="Circus Performer" x="20vw" y="-24vw" />
+          <Skill name="Photogrammetry" x="-35vw" y="-5vw" />
           {/* <Skill name="Github" x="-35vw" y="-5vw" />
           <Skill name="Webflow" x="32vw" y="-5vw" />
           

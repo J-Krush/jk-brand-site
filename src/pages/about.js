@@ -1,18 +1,31 @@
-import Layout from "@/components/Layout";
+import Typewriter from 'typewriter-effect';
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { LinkArrow } from "@/components/Icons";
-import profile from "../../public/images/profile/jkrush-goofy-profile.JPG";
+import { Carousel } from "@material-tailwind/react";
+
+
+// import profile from "../../public/images/profile/jkrush-goofy-profile.JPG";
+import aiProfile1 from "../../public/images/profile/ai-portrait-goth-1.jpg";
+import aiProfile2 from "../../public/images/profile/ai-portrait-superhero-2.jpg";
+// import aiProfile3 from "../../public/images/profile/ai-portrait-sandcastle-3.JPG";
+import aiProfile4 from "../../public/images/profile/ai-portrait-goth-4.jpg";
+import aiProfile5 from "../../public/images/profile/ai-portrait-superhero-5.jpg";
+import aiProfile6 from "../../public/images/profile/ai-portrait-6.jpg";
+import aiProfile7 from "../../public/images/profile/ai-portrait-7.JPG";
+
 import profileAndRolig from "../../public/images/profile/jkrush-and-rolig.jpg";
+
 import { useInView, useMotionValue, useSpring } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { Skills } from "@/components/Skills";
 import Experience from "@/components/Experience";
 import Education from "@/components/Education";
+import Layout from "@/components/Layout";
 import AnimatedText from "@/components/AnimatedText";
 import TransitionEffect from "@/components/TransitionEffect";
-import Typewriter from 'typewriter-effect';
+
 import { Project } from "@/components/Project";
 
 import softwareImage from "../../public/images/projects/magicstudio-computer-engineer.jpeg";
@@ -45,6 +58,8 @@ function AnimatedNumberFramerMotion({ value }) {
 }
 
 export default function About() {
+
+  const aiProfiles = [aiProfile6, aiProfile4, aiProfile5, aiProfile1, aiProfile7, aiProfile2]
 
   return (
     <>
@@ -137,15 +152,25 @@ export default function About() {
                 bg-dark
         dark:bg-light  "
               />
-              <Image
-                className="h-auto w-full rounded-2xl"
-                src={profileAndRolig}
-                alt="J-Krush Profile"
-                sizes="(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              33vw"
-                priority
-              />
+              <Carousel className="rounded-xl">
+                {aiProfiles.map((profile, index) => {
+                  return (
+                    <Image
+                      key={index}
+                      className="h-auto w-full rounded-2xl"
+                      src={profile}
+                      alt="J-Krush AI Profile"
+                      sizes="(max-width: 768px) 100vw,
+                    (max-width: 1200px) 50vw,
+                    33vw"
+                      priority
+                    />
+                  )
+                })}
+              </Carousel>
+              <span className="w-full inline-block text-center text-sm font-bold mt-4">
+                  My AI Looks 👀
+              </span>
             </div>
             <div className="col-span-2 flex flex-col items-end justify-between xl:col-span-8 xl:flex-row 
             xl:items-center md:order-3 mt-16">
@@ -191,7 +216,7 @@ export default function About() {
             <div className="col-span-4 sm:col-span-12">
               <Project
                 subtitle="Full Stack Software Development & Consulting"
-                title="J-Krush Dev"
+                title="J-Krush Software Consulting"
                 img={softwareImage}
                 link="/work"
                 newTab={false}
