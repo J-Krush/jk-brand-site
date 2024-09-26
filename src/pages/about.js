@@ -76,20 +76,19 @@ export default function About() {
         <Layout className="pt-16">
           <AnimatedText
             text="Creating across mediums"
-            className="mb-16 !text-8xl !leading-tight lg:!text-7xl sm:!text-6xl xs:!text-4xl sm:mb-8"
+            className="mb-16 !text-8xl !leading-tight lg:!text-6xl sm:!text-4xl xs:!text-3xl md:text-left sm:mb-8"
           />
 
+          {/* This is the grid */}
           <div className="grid w-full grid-cols-8 gap-16 sm:gap-8">
-            <div className="col-span-3 flex flex-col items-start justify-start xl:col-span-4 md:order-2 
-            md:col-span-8">
-              <div className="h-8 mb-6">
+
+            <div className="col-span-3 flex flex-col items-start justify-start md:order-1 
+            xl:col-span-4 lg:col-span-4 md:!col-span-8">
+              <div className="h-12 mb-6">
                 <Typewriter
                   className="mb-4 text-lg font-bold uppercase text-dark/75 dark:text-light/75"
                   onInit={(typewriter) => {
                     typewriter.typeString("<span style='font-size: 30px;line-height: 36px;font-weight: 700;'>I'm J-Krush</span>")
-                      .callFunction(() => {
-                        console.log('String typed out!');
-                      })
                       .pauseFor(2500)
                       .deleteChars(6)
                       .typeString("<span style='font-size: 30px;line-height: 36px;font-weight: 600;'>ohn Kreisher</span>")
@@ -142,13 +141,13 @@ export default function About() {
                 your next project.
               </p> */}
               
-            </div>
+            </div> { /* Text column */ }
             <div className="relative col-span-3 h-max rounded-2xl border-2 border-solid border-dark 
             bg-light p-8 dark:border-light dark:bg-dark
-            xl:col-span-4 md:col-span-8 md:order-1
+            xl:col-span-4 lg:col-span-4 md:!col-span-8 md:order-2
             ">
               <div
-                className="absolute  top-0 -right-3 -z-10 h-[103%] w-[102%]  rounded-[2rem] rounded-br-3xl 
+                className="absolute  top-0 -right-3 -z-10 h-[103%] w-[102%] rounded-[2rem] rounded-br-3xl 
                 bg-dark
         dark:bg-light  "
               />
@@ -172,7 +171,7 @@ export default function About() {
                   My AI Looks 👀
               </span>
             </div>
-            <div className="col-span-2 flex flex-col items-end justify-between xl:col-span-8 xl:flex-row 
+            <div className="col-span-2 flex flex-col items-end gap-2 justify-between xl:col-span-8 xl:flex-row 
             xl:items-center md:order-3 mt-16">
               <div className="flex flex-col items-end justify-center xl:items-center">
                 <span className="inline-block text-3xl font-bold md:text-2xl sm:text-xl xs:text-lg">
@@ -205,48 +204,6 @@ export default function About() {
               </div>
             </div>
           </div>
-
-          <h3 className="mb-8 font-bold text-6xl mt-64 w-full text-center md:text-4xl sm:!text-2xl md:mt-32">
-            My Businesses
-          </h3> 
-          <p className="font-medium mb-8 text-center">
-            Wearing many hats, but they all fit
-          </p>
-          <div className="grid grid-cols-12 gap-24 gap-y-12 xl:gap-x-16 lg:gap-x-8 md:gap-y-24 sm:gap-x-0">
-            <div className="col-span-4 sm:col-span-12">
-              <Project
-                subtitle="Full Stack Software Development & Consulting"
-                title="J-Krush Software Consulting"
-                img={softwareImage}
-                link="/work"
-                newTab={false}
-                imageOnTop={false}
-                showVisitButton={false}
-              />
-            </div>
-            <div className="col-span-4 sm:col-span-12">
-              <Project
-                subtitle="Drone Cinematography"
-                title="Flowcraft Media"
-                img={flowcraftMediaSite}
-                link="https://flowcraft-media-main.webflow.io/coming-soon"
-                imageOnTop={false}
-                showVisitButton={false}
-              />
-            </div>
-            <div className="col-span-4 sm:col-span-12">
-              <Project
-                subtitle="Laser Cutting and Maker Studio"
-                title="Shapesmith Studio"
-                summary=""
-                img={shapesmithStudioSite}
-                link="https://shapesmith.studio"
-                imageOnTop={false}
-                showVisitButton={false}
-              />
-            </div>
-          </div>
-
           <Skills />
           <Experience />
           <Education />

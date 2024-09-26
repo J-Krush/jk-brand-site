@@ -45,11 +45,12 @@ export default function Work() {
           <p className="font-large mb-8 text-center"> 
             My specialty is in custom software development and holistic systems design and integration.
           </p>
+          { /* TODO need to add links to the sections on this page in the text here */ }
 
-          <h3 id="featured_software_projects" className="mb-16 font-bold text-6xl mt-64 w-full text-center md:text-4xl sm:!text-2xl md:mt-32">
+          <h3 id="featured_software_projects" className="mb-16 font-bold text-6xl mt-64 w-full text-center md:text-4xl md:mt-32">
             Featured Software Projects
           </h3> 
-          <div className="grid grid-cols-12 gap-24 gap-y-12 xl:gap-x-16 lg:gap-x-8 md:gap-y-24 sm:gap-x-0">
+          <div className="grid grid-cols-12 gap-y-12">
             <div className="col-span-12">
               <FeaturedProject
                 type="Webflow Site and Node.js API"
@@ -80,18 +81,18 @@ export default function Work() {
             </div>
           </div>
 
-          <h3 className="mb-16 font-bold text-6xl mt-64 w-full text-center md:text-4xl sm:!text-2xl md:mt-32">
+          <h3 className="mb-16 font-bold text-6xl mt-64 w-full text-center md:text-4xl md:mt-32">
             Tools and Components
           </h3> 
-          <div className="grid grid-cols-12 gap-24 gap-y-12 xl:gap-x-16 lg:gap-x-8 md:gap-y-24 sm:gap-x-0">
-            <div className="col-span-4 sm:col-span-6">
+          <div className="grid grid-cols-12 gap-6 gap-y-12">
+            <div className="col-span-4 sm:col-span-12">
               <Project
                 subtitle="Serverless Function"
                 title="Recaptcha Verification V3"
                 link=""
               />
             </div>
-            <div className="col-span-4 sm:col-span-6">
+            <div className="col-span-4 sm:col-span-12">
               <Project
                 subtitle="Integrated with NASA Planetary API"
                 title="Astrological Calculator"
@@ -99,7 +100,7 @@ export default function Work() {
                 link="#" // link to section of the work page
               />
             </div>
-            <div className="col-span-4 sm:col-span-6">
+            <div className="col-span-4 sm:col-span-12">
               <Project
                 subtitle="AWS SES Serverless Function"
                 title="Email Sender"
@@ -108,6 +109,13 @@ export default function Work() {
                 github="https://github.com/J-Krush/genius-facilitate-email-service"
               />
             </div>
+          </div>
+
+          <h3 className="mb-16 font-bold text-6xl mt-64 w-full text-center md:text-4xl sm:!text-2xl md:mt-32">
+            Photogrammetry
+          </h3> 
+          <div className="grid grid-cols-12 gap-24 gap-y-12 xl:gap-x-16 lg:gap-x-8 md:gap-y-24 sm:gap-x-0">
+            
           </div>
           
 
