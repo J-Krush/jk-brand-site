@@ -13,7 +13,7 @@ const Skill = ({ name, x, y }) => {
       viewport={{ once: true }}
       className="cursor-pointer w-max origin-center absolute 
        font-semibold bg-dark text-light py-3 px-6 rounded-full dark:bg-light dark:text-dark
-       lg:py-2 lg:px-4 md:text-sm md:py-1.5 md:px-3  xs:bg-transparent xs:dark:bg-transparent xs:text-dark xs:dark:text-light xs:font-bold
+       lg:py-2 lg:px-4 md:text-sm md:py-1.5 md:px-3 xs:text-xs xs:bg-transparent xs:dark:bg-transparent xs:text-dark xs:dark:text-light xs:font-bold
        "
     >
       {name}
@@ -87,22 +87,22 @@ const SoftwareSkills = () => {
         Full Stack Dev
       </motion.div>
 
-          <Skill name="Neo4j" x="-20vw" y="2vw" />
+          <Skill name="Neo4j" x="-22vw" y="2vw" />
           <Skill name="ReactJS" x="-5vw" y="-10vw" />
-          <Skill name="JavaScript" x="20vw" y="6vw" />
+          <Skill name="JavaScript" x="22vw" y="6vw" />
           <Skill name="React Native" x="0vw" y="12vw" />
           <Skill name="PostgreSQL" x="0vw" y="24vw" />
           <Skill name="Next.js" x="-20vw" y="-15vw" />
           <Skill name="Python" x="-15vw" y="-28vw" />
-          <Skill name="Swift & SwiftUI" x="15vw" y="-12vw" />
+          <Skill name="Swift & SwiftUI" x="15vw" y="-15vw" />
           <Skill name="AWS" x="20vw" y="-24vw" />
           <Skill name="Github" x="-35vw" y="-5vw" />
           <Skill name="Webflow" x="32vw" y="-5vw" />
-          <Skill name="Node.js" x="0vw" y="-20vw" />
+          <Skill name="Node.js" x="0vw" y="-22vw" />
           <Skill name="AI and LLMs" x="10vw" y="-30vw" />
-          <Skill name="Bubble" x="-20vw" y="22vw" />
+          <Skill name="Bubble" x="-20vw" y="28vw" />
           <Skill name="Tawilwind CSS" x="28vw" y="18vw" />
-          <Skill name="Blockchain & Crypto" x="-26vw" y="12vw" />
+          <Skill name="Blockchain & Crypto" x="-26vw" y="17vw" />
     </div></>
   );
 };
@@ -129,17 +129,17 @@ const CreativeSkills = () => {
           <Skill name="Videography" x="0vw" y="-20vw" />
           <Skill name="Adobe Illustrator" x="-25vw" y="18vw" />
           <Skill name="AcroYoga Instructor" x="-5vw" y="-10vw" />
-          <Skill name="Drone Cinematography" x="15vw" y="-12vw" />
-          <Skill name="Violinist" x="-20vw" y="2vw" />
-          <Skill name="Guitar Player" x="20vw" y="6vw" />
+          <Skill name="Drone Cinematography" x="22vw" y="-14vw" />
+          <Skill name="Violinist" x="-20vw" y="8vw" />
+          <Skill name="Guitar Player" x="20vw" y="8vw" />
           <Skill name="Bass Player" x="0vw" y="12vw" />
 
           <Skill name="Davinci Resolve" x="0vw" y="24vw" />
           <Skill name="3D Modeling" x="20vw" y="28vw" />
-          <Skill name="Music Producer" x="-20vw" y="-15vw" />
-          <Skill name="Dance Choreographer" x="-15vw" y="-28vw" />
+          <Skill name="Music Producer" x="-25vw" y="-15vw" />
+          <Skill name="Dance Choreographer" x="-15vw" y="-30vw" />
           
-          <Skill name="Circus Performer" x="20vw" y="-24vw" />
+          <Skill name="Circus Performer" x="20vw" y="-26vw" />
           <Skill name="Photogrammetry" x="-35vw" y="-5vw" />
           {/* <Skill name="Github" x="-35vw" y="-5vw" />
           <Skill name="Webflow" x="32vw" y="-5vw" />

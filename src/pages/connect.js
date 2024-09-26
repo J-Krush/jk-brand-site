@@ -75,7 +75,7 @@ const ContactForm = () => {
 
       const results = await fetchResult.json();
 
-      console.log('fetch results: ', results);
+      console.log('fetch results: ', results.details);
 
       // console.log('fetch result body: ', fetchResult.body);
 
@@ -110,13 +110,13 @@ const ContactForm = () => {
 
   return (
     <article
-      className="relative flex w-full items-center  justify-center rounded-3xl rounded-br-2xl border
+      className="relative mb-36 flex w-full items-center  justify-center rounded-3xl rounded-br-2xl border
 border-solid border-dark bg-light p-12 shadow-2xl  dark:border-light dark:bg-dark  lg:flex-col 
 lg:p-8 xs:rounded-2xl  xs:rounded-br-3xl xs:p-4 
     "
     >
       <div
-        className="absolute  top-0 -right-3 -z-10 h-[103%] w-[101%] rounded-[2.5rem] rounded-br-3xl bg-dark
+        className="absolute top-0 -right-3 -z-10 h-[103%] w-[101%] rounded-[2.5rem] rounded-br-3xl bg-dark
          dark:bg-light  xs:-right-2 xs:h-[102%] xs:w-[100%]
         xs:rounded-[1.5rem] "
       /> {/* card shadow */}

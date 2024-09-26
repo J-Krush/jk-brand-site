@@ -33,7 +33,7 @@ export default function Work() {
       <main
         className={`mb-16 flex w-full flex-col items-center justify-center dark:text-light`}
       >
-        <Layout className="pt-16">
+        <Layout className="pt-16 mb-36">
           <AnimatedText
             text="My Work"
             className="mb-8 !text-8xl !leading-tight lg:!text-7xl sm:mb-8 sm:!text-6xl xs:!text-4xl"
@@ -80,18 +80,19 @@ export default function Work() {
             </div>
           </div>
 
+          {/* TODO: Fix links for tools and components
           <h3 className="mb-16 font-bold text-6xl mt-64 w-full text-center md:text-4xl md:mt-32">
             Tools and Components
           </h3> 
-          <div className="grid grid-cols-12 gap-6 gap-y-12">
-            <div className="col-span-4 sm:col-span-12">
+          <div className="grid grid-cols-8 gap-6 gap-y-12">
+            <div className="col-span-4 sm:!col-span-8">
               <Project
                 subtitle="Serverless Function"
                 title="Recaptcha Verification V3"
                 link=""
               />
             </div>
-            <div className="col-span-4 sm:col-span-12">
+            <div className="col-span-4 sm:col-span-8">
               <Project
                 subtitle="Integrated with NASA Planetary API"
                 title="Astrological Calculator"
@@ -99,7 +100,7 @@ export default function Work() {
                 link="#" // link to section of the work page
               />
             </div>
-            <div className="col-span-4 sm:col-span-12">
+            <div className="col-span-4 sm:!col-span-8">
               <Project
                 subtitle="AWS SES Serverless Function"
                 title="Email Sender"
@@ -108,15 +109,16 @@ export default function Work() {
                 github="https://github.com/J-Krush/genius-facilitate-email-service"
               />
             </div>
-          </div>
+          </div> */}
 
-          <h3 className="mb-16 font-bold text-6xl mt-64 w-full text-center md:text-4xl sm:!text-2xl md:mt-32">
+          {/* <h3 className="mb-16 font-bold text-6xl mt-64 w-full text-center md:text-4xl sm:!text-2xl md:mt-32">
             Photogrammetry
-          </h3> 
-          <div className="grid grid-cols-12 gap-24 gap-y-12 xl:gap-x-16 lg:gap-x-8 md:gap-y-24 sm:gap-x-0">
+          </h3>  */}
+          {/* <div className="grid grid-cols-12 gap-24 gap-y-12 xl:gap-x-16 lg:gap-x-8 md:gap-y-24 sm:gap-x-0">
             
-          </div>
+          </div> */}
           
+          {/* <div class="sketchfab-embed-wrapper"> <iframe title="Buddha-wood" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/021f3d21a2fa4e88bc75e1ec829720b4/embed"> </iframe> <p style={"font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"}> <a href="https://sketchfab.com/3d-models/buddha-wood-021f3d21a2fa4e88bc75e1ec829720b4?utm_medium=embed&utm_campaign=share-popup&utm_content=021f3d21a2fa4e88bc75e1ec829720b4" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> Buddha-wood </a> by <a href="https://sketchfab.com/cubik?utm_medium=embed&utm_campaign=share-popup&utm_content=021f3d21a2fa4e88bc75e1ec829720b4" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> Cubik </a> on <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=021f3d21a2fa4e88bc75e1ec829720b4" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a></p></div> */}
 
         </Layout>
         {/* <HireMe /> */}

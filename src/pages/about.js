@@ -77,7 +77,7 @@ export default function About() {
         <Layout className="pt-16">
           <AnimatedText
             text="Creating across mediums"
-            className="mb-16 !text-8xl !leading-tight lg:!text-6xl sm:!text-4xl xs:!text-3xl md:text-left sm:mb-8"
+            className="mb-16 !text-8xl !leading-tight lg:!text-6xl xs:!text-3xl md:text-left sm:mb-8"
           />
 
           {/* This is the grid */}
@@ -85,9 +85,9 @@ export default function About() {
 
             <div className="col-span-3 flex flex-col items-start justify-start md:order-1 
             xl:col-span-4 lg:col-span-4 md:!col-span-8">
-              <div className="h-12 mb-6">
+              <div className="h-12 mb-8">
                 <Typewriter
-                  className="mb-4 text-lg font-bold uppercase text-dark/75 dark:text-light/75"
+                  className="mb-6 text-lg font-bold uppercase text-dark/75 dark:text-light/75"
                   onInit={(typewriter) => {
                     typewriter.typeString("<span style='font-size: 30px;line-height: 36px;font-weight: 700;'>I'm J-Krush</span>")
                       .pauseFor(2500)

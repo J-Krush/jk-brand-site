@@ -31,7 +31,7 @@ export default function Home() {
 
       <TransitionEffect />
       <article
-        className={`flex min-h-screen items-center text-dark dark:text-light sm:items-start`}
+        className={`flex mb-36 min-h-screen items-center text-dark dark:text-light sm:items-start`}
       >
         <Layout className="!pt-0 md:!pt-16 sm:!pt-16">
           <div className="flex w-full items-start justify-between lg:items-center lg:flex-col lg:mt-16">
