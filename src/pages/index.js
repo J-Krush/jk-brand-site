@@ -34,8 +34,9 @@ export default function Home() {
         className={`flex min-h-screen items-center text-dark dark:text-light sm:items-start`}
       >
         <Layout className="!pt-0 md:!pt-16 sm:!pt-16">
-          <div className="flex w-full items-start justify-between lg:items-center lg:flex-col">
-            <div className="w-1/2 lg:justify-center md:inline-block md:w-full">
+          <div className="flex w-full items-start justify-between lg:items-center lg:flex-col lg:mt-16">
+            {/* <div className="w-1/2 lg:justify-center md:inline-block md:w-full"> */}
+            <div className="w-1/2 p-6 lg:hidden">
               <Image
                 src={profilePic}
                 alt="J-Krush"
@@ -44,6 +45,7 @@ export default function Home() {
                 priority
               />
             </div>
+
             <div className="flex w-1/2 flex-col items-start self-center lg:items-center lg:w-full lg:text-center">
               {/* <AnimatedText
                 text="Creating across mediums, connecting the dots, making magic happen."
@@ -54,9 +56,6 @@ export default function Home() {
                   className="mb-4 text-lg font-bold uppercase text-dark/75 dark:text-light/75"
                   onInit={(typewriter) => {
                     typewriter.typeString("<span style='font-size: 30px;line-height: 36px;font-weight: 700;'>I'm J-Krush</span>")
-                      .callFunction(() => {
-                        console.log('String typed out!');
-                      })
                       .pauseFor(2500)
                       .deleteChars(6)
                       .typeString("<span style='font-size: 30px;line-height: 36px;font-weight: 600;'>ohn Kreisher</span>")
@@ -72,7 +71,7 @@ export default function Home() {
                 />
               </div>
               
-              <p className="text-center my-4 text-base font-medium lg:text-center md:text-sm sm:!text-xs">
+              <p className="text-center my-4 text-base font-medium lg:text-center">
               Polymath at heart.. always learning, always building.
               </p>
               <div className="mt-2 flex items-center self-start lg:self-center">
@@ -88,7 +87,7 @@ export default function Home() {
              `}
                   download
                 >
-                  Work <LinkArrow className="ml-1 !w-6 md:!w-4" />
+                  Work
                 </Link>
 
                 <Link
@@ -101,14 +100,83 @@ export default function Home() {
               </div>
             </div>
           </div>
+
+          <div className="hidden mt-6 lg:flex flex-col">
+            <h3 className="mb-8 font-bold text-4xl mt-16 w-full text-center md:text-3xl">
+              Links
+            </h3> 
+            <div className="mt-2 w-full grid-cols-12 gap-2 gap-y-4 hidden lg:grid self-center">
+              
+              <Link
+                href="https://github.com/J-Krush"
+                className={`col-span-4 md:col-span-12 flex items-center justify-center rounded-lg border-2 border-solid bg-dark p-2.5 px-6 text-lg font-semibold
+          capitalize text-light hover:border-dark hover:bg-transparent hover:text-dark 
+          dark:bg-light dark:text-dark dark:hover:border-light dark:hover:bg-dark dark:hover:text-light
+          md:p-2 md:px-4 md:text-base 
+            `}
+              >
+                Github <LinkArrow className="ml-1 !w-6 md:!w-4" />
+              </Link>
+              <Link
+                href="https://www.linkedin.com/in/john-kreisher-792aa34b/"
+                className={`col-span-4 md:col-span-12 flex items-center justify-center rounded-lg border-2 border-solid bg-[#0077B5] p-2.5 px-6 text-lg font-semibold
+          capitalize text-light hover:border-dark hover:bg-transparent hover:text-dark 
+          dark:border-[#0077B5] dark:text-light dark:hover:border-light dark:hover:bg-dark dark:hover:text-light
+          md:p-2 md:px-4 md:text-base
+            `}
+              >
+                LinkedIn <LinkArrow className="ml-1 !w-6 md:!w-4" />
+              </Link>
+              <Link
+                href="https://open.spotify.com/user/j-krush?si=2c088ce1cdd246b6"
+                className={`col-span-4 md:col-span-12 flex items-center justify-center rounded-lg border-2 border-solid bg-[#1db954] p-2.5 px-6 text-lg font-semibold
+          capitalize text-light hover:border-dark hover:bg-transparent hover:text-dark 
+          dark:border-[#1db954] dark:text-light dark:hover:border-light dark:hover:bg-dark dark:hover:text-light
+          md:p-2 md:px-4 md:text-base
+            `}
+              >
+                Spotify <LinkArrow className="ml-1 !w-6 md:!w-4" />
+              </Link>
+              <Link
+                href="https://soundcloud.com/megakrush"
+                className={`col-span-4 md:col-span-12 flex items-center justify-center rounded-lg border-2 border-solid bg-[#ff8800] p-2.5 px-6 text-lg font-semibold
+          capitalize text-light hover:border-dark hover:bg-transparent hover:text-dark 
+          dark:border-[#ff8800] dark:text-light dark:hover:border-light dark:hover:bg-dark dark:hover:text-light
+          md:p-2 md:px-4 md:text-base
+            `}
+              >
+                Soundcloud <LinkArrow className="ml-1 !w-6 md:!w-4" />
+              </Link>
+              <Link
+                href="https://www.youtube.com/@FlowcraftMedia"
+                className={`col-span-4 md:col-span-12 flex items-center justify-center rounded-lg border-2 border-solid bg-[#CD201F] p-2.5 px-6 text-lg font-semibold
+          capitalize text-light hover:border-dark hover:bg-transparent hover:text-dark 
+          dark:border-[#CD201F] dark:text-light dark:hover:border-light dark:hover:bg-dark dark:hover:text-light
+          md:p-2 md:px-4 md:text-base
+            `}
+              >
+                Youtube <LinkArrow className="ml-1 !w-6 md:!w-4" />
+              </Link>
+              <Link
+                href="https://www.instagram.com/__jkrush__/"
+                className={`col-span-4 md:col-span-12 flex items-center justify-center rounded-lg border-2 border-solid bg-[#833ab4] p-2.5 px-6 text-lg font-semibold
+          capitalize text-light hover:border-dark hover:bg-transparent hover:text-dark 
+          dark:border-[#833ab4] dark:text-light dark:hover:border-light dark:hover:bg-dark dark:hover:text-light
+          md:p-2 md:px-4 md:text-base
+            `}
+              >
+                Instagram <LinkArrow className="ml-1 !w-6 md:!w-4" />
+              </Link>
+            </div>
+          </div>
           
-          <h3 className="mb-8 font-bold text-6xl mt-64 w-full text-center md:text-4xl sm:!text-2xl md:mt-32">
+          <h3 className="mb-8 font-bold text-6xl mt-64 w-full text-center md:text-4xl md:mt-32">
             My Businesses
           </h3> 
           <p className="font-medium mb-8 text-center">
             Wearing many hats, but they all fit
           </p>
-          <div className="grid grid-cols-12 gap-24 gap-y-12 xl:gap-x-16 lg:gap-x-8 md:gap-y-24 sm:gap-x-0">
+          <div className="grid grid-cols-12 gap-6 gap-y-12">
             <div className="col-span-4 sm:col-span-12">
               <Project
                 subtitle="Full Stack Software Development & Consulting"
