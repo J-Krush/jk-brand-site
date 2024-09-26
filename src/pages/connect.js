@@ -12,7 +12,7 @@ const ContactForm = () => {
   const [formEmail, setFormEmail] = useState("");
 	// const [formSubject, setFormSubject] = useState("");
   const [formMessage, setFormMessage] = useState("");
-  // const [formBotField, setFormBotField] = useState("");
+  const [formBotField, setFormBotField] = useState("");
   const [formSubmitted, setFormSubmitted] = useState(false);
 
   const { executeRecaptcha } = useGoogleReCaptcha();
@@ -22,6 +22,14 @@ const ContactForm = () => {
   const setTokenFunc = (getToken) => {
     setToken(getToken);
   };
+
+  const resetForm = () => {
+    setFormUserName("");
+    setFormPhone("");
+    setFormEmail("");
+    setFormMessage("");
+    setFormBotField("");
+  }
 
   const encode = (data) => {
     return Object.keys(data)
@@ -58,24 +66,24 @@ const ContactForm = () => {
     console.log('message: ', formMessage);
     
     try {
-      const fetchResult = await fetch("https://jkrush.dev/.netlify/functions/recaptcha-verify", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: JSON.stringify({
-          token,
-          formName: "contact-form",
-          name: formUserName,
-          phone: formPhone,
-          email: formEmail,
-          // subject: formSubject,
-          message: formMessage,
-          // "bot-field": formBotField
-        })
-      });
+      // const fetchResult = await fetch("https://jkrush.dev/.netlify/functions/recaptcha-verify", {
+      //   method: "POST",
+      //   headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      //   body: JSON.stringify({
+      //     token,
+      //     formName: "contact-form",
+      //     name: formUserName,
+      //     phone: formPhone,
+      //     email: formEmail,
+      //     // subject: formSubject,
+      //     message: formMessage,
+      //     // "bot-field": formBotField
+      //   })
+      // });
 
-      const results = await fetchResult.json();
+      // const results = await fetchResult.json();
 
-      console.log('fetch results: ', results.details);
+      // console.log('fetch results: ', results.details);
 
       // console.log('fetch result body: ', fetchResult.body);
 
@@ -88,23 +96,22 @@ const ContactForm = () => {
             name: formUserName,
             phone: formPhone,
             email: formEmail,
-    // subject: formSubject,
             message: formMessage,
-            // "bot-field": formBotField
+            "bot-field": formBotField
         })
-      })
+      });
 
       console.log('netlify submit results: ', netlifySubmit);
 
-
-      if (fetchResult) {
-        alert("Success!");
-        setFormSubmitted(true);
+      if (netlifySubmit.ok === true) {
+        alert("Thanks for submitting!");
+        // setFormSubmitted(true);
+        resetForm();
       }
 
     } catch (error) {
       console.log('frontend error: ', error);
-      alert(error)
+      alert("Error submitting form, please try again.")
     }
   };
 
@@ -122,8 +129,7 @@ lg:p-8 xs:rounded-2xl  xs:rounded-br-3xl xs:p-4
       /> {/* card shadow */}
       <div className="animate-on-scroll w-full">
         <div className="pt-6">
-          <form className="space-y-4" netlify>
-            <input type="hidden" name="form-name" value="contact-form" />
+          <form className="space-y-4 mb-6" netlify>
             <div>
               <label htmlFor="name" className="block text-sm font-medium mb-1">Name</label>
               <input
@@ -157,11 +163,21 @@ lg:p-8 xs:rounded-2xl  xs:rounded-br-3xl xs:p-4
               <textarea
                 id="message"
                 placeholder="Your message"
-                className="w-full rounded-lg p-3 text-dark"
+                className="w-full rounded-lg p-3 text-dark mb-6"
                 onChange={(e) => setFormMessage(e.target.value)}
               />
             </div>
-
+            <div>
+              <label htmlFor="bot-field" className="block text-sm font-medium mb-1">Human Test</label>
+              <input
+                id="bot-field"
+                placeholder="Don't fill out if you're human"
+                className="w-full rounded-lg p-3 text-dark mb-12" 
+                onChange={(e) => setFormBotField(e.target.value)}
+              />
+            </div>
+            
+            <input type="hidden" name="form-name" value="contact-form" />
             <button type="submit" className="rounded-lg
              bg-dark p-2 px-6 text-lg font-semibold text-light dark:bg-light dark:text-dark 
              sm:px-4 sm:text-base" 
