@@ -120,7 +120,7 @@ export default function Work() {
           
 
         </Layout>
-        <HireMe />
+        {/* <HireMe /> */}
       </main>
     </>
   );

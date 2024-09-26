@@ -87,7 +87,7 @@ export default function Home() {
              `}
                   download
                 >
-                  Work
+                  My Work
                 </Link>
 
                 <Link
@@ -170,7 +170,7 @@ export default function Home() {
             </div>
           </div>
           
-          <h3 className="mb-8 font-bold text-6xl mt-64 w-full text-center md:text-4xl md:mt-32">
+          <h3 className="mb-8 font-bold text-4xl mt-64 w-full text-center md:text-3xl md:mt-32">
             My Businesses
           </h3> 
           <p className="font-medium mb-8 text-center">
@@ -212,7 +212,7 @@ export default function Home() {
           </div>
         </Layout>
 
-        <HireMe />
+        {/* <HireMe /> */}
       </article>
     </>
   );
