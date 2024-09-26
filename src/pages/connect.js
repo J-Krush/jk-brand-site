@@ -104,9 +104,9 @@ const ContactForm = () => {
       console.log('netlify submit results: ', netlifySubmit);
 
       if (netlifySubmit.ok === true) {
+        resetForm();
         alert("Thanks for submitting!");
         // setFormSubmitted(true);
-        resetForm();
       }
 
     } catch (error) {
@@ -129,7 +129,7 @@ lg:p-8 xs:rounded-2xl  xs:rounded-br-3xl xs:p-4
       /> {/* card shadow */}
       <div className="animate-on-scroll w-full">
         <div className="pt-6">
-          <form className="space-y-4 mb-6" netlify>
+          <form className="space-y-4 mb-6">
             <div>
               <label htmlFor="name" className="block text-sm font-medium mb-1">Name</label>
               <input
@@ -137,6 +137,7 @@ lg:p-8 xs:rounded-2xl  xs:rounded-br-3xl xs:p-4
                 placeholder="Your Name"
                 className="w-full rounded-lg p-3 text-dark" 
                 onChange={(e) => setFormUserName(e.target.value)}
+                value={formUserName}
               />
             </div>
             <div>
@@ -146,6 +147,7 @@ lg:p-8 xs:rounded-2xl  xs:rounded-br-3xl xs:p-4
                 placeholder="Your Phone (optional)"
                 className="w-full rounded-lg p-3 text-dark" 
                 onChange={(e) => setFormPhone(e.target.value)}
+                value={formPhone}
               />
             </div>
             <div>
@@ -156,6 +158,7 @@ lg:p-8 xs:rounded-2xl  xs:rounded-br-3xl xs:p-4
                 placeholder="your@email.com"
                 className="w-full rounded-lg p-3 text-dark" 
                 onChange={(e) => setFormEmail(e.target.value)}
+                value={formEmail}
               />
             </div>
             <div>
@@ -165,6 +168,7 @@ lg:p-8 xs:rounded-2xl  xs:rounded-br-3xl xs:p-4
                 placeholder="Your message"
                 className="w-full rounded-lg p-3 text-dark mb-6"
                 onChange={(e) => setFormMessage(e.target.value)}
+                value={formMessage}
               />
             </div>
             <div>
@@ -174,6 +178,7 @@ lg:p-8 xs:rounded-2xl  xs:rounded-br-3xl xs:p-4
                 placeholder="Don't fill out if you're human"
                 className="w-full rounded-lg p-3 text-dark mb-12" 
                 onChange={(e) => setFormBotField(e.target.value)}
+                value={formBotField}
               />
             </div>
             
