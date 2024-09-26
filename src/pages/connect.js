@@ -1,4 +1,5 @@
 import { useEffect, useState, useCallback } from 'react';
+import Head from "next/head";
 import { GoogleReCaptchaProvider, GoogleReCaptcha, useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import AnimatedText from "@/components/AnimatedText";
 import Layout from "@/components/Layout";
@@ -185,6 +186,13 @@ export default function Connect() {
   
   return (
     <>
+      <Head>
+        <title>J-Krush Dev</title>
+        <meta
+          name="description"
+          content="Full-stack software developer and software engineer"
+        />
+      </Head>
       <TransitionEffect />
       <article
         className={`flex min-h-screen items-center text-dark dark:text-light sm:items-start`}

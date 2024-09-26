@@ -25,7 +25,7 @@ export default function Home() {
         <title>J-Krush Dev</title>
         <meta
           name="description"
-          content="Full-stack developer and software engineer"
+          content="Full-stack software developer and software engineer"
         />
       </Head>
 
