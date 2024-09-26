@@ -8,7 +8,8 @@ import {
   MoonIcon,
   SunIcon,
   SpotifyIcon,
-  SoundcloudIcon
+  SoundcloudIcon,
+  YoutubeIcon
 } from "./Icons";
 import { motion } from "framer-motion";
 import { useThemeSwitch } from "./Hooks/useThemeSwitch";
@@ -99,71 +100,81 @@ const Navbar = () => {
 
       <div className="w-full flex justify-between items-center lg:hidden"
       >
-      <nav className="flex items-center justify-center">
-        <CustomLink className="mr-4" href="/" title="Home" />
-        <CustomLink className="mx-4" href="/about" title="About" />
-        <CustomLink className="mx-4" href="/work" title="Work" />
-        <CustomLink className="ml-4" href="/connect" title="Connect" />
-      </nav>
-      <nav
-        className="flex items-center justify-center flex-wrap lg:mt-2
-      "
-      >
-        <motion.a
-          target={"_blank"}
-          className="w-6 mx-3"
-          href="https://github.com/J-Krush"
-          whileHover={{ y: -2 }}
-          whileTap={{ scale: 0.9 }}
-          aria-label="Checkout my github profile"
+        <nav className="flex items-center justify-center">
+          <CustomLink className="mr-4" href="/" title="Home" />
+          <CustomLink className="mx-4" href="/about" title="About" />
+          <CustomLink className="mx-4" href="/work" title="Work" />
+          <CustomLink className="ml-4" href="/connect" title="Connect" />
+        </nav>
+        <nav
+          className="flex items-center justify-center flex-wrap lg:mt-2
+        "
         >
-          <GithubIcon />
-        </motion.a>
-        <motion.a
-          target={"_blank"}
-          className="w-6 mx-3"
-          href="https://www.linkedin.com/in/john-kreisher-792aa34b/"
-          whileHover={{ y: -2 }}
-          whileTap={{ scale: 0.9 }}
-          aria-label="Checkout my linkedin profile"
-        >
-          <LinkedInIcon />
-        </motion.a>
-        <motion.a
-          target={"_blank"}
-          className="w-6 mx-3"
-          href="https://open.spotify.com/user/j-krush?si=2c088ce1cdd246b6"
-          whileHover={{ y: -2 }}
-          whileTap={{ scale: 0.9 }}
-          aria-label="Checkout my Spotify profile"
-        >
-          <SpotifyIcon />
-        </motion.a>
-        <motion.a
-          target={"_blank"}
-          className="w-6 mx-3"
-          href="https://soundcloud.com/megakrush"
-          whileHover={{ y: -2 }}
-          whileTap={{ scale: 0.9 }}
-          aria-label="Checkout my Soundcloud profile"
-        >
-          <SoundcloudIcon />
-        </motion.a>
+          <motion.a
+            target={"_blank"}
+            className="w-6 mx-3"
+            href="https://github.com/J-Krush"
+            whileHover={{ y: -2 }}
+            whileTap={{ scale: 0.9 }}
+            aria-label="Checkout my github profile"
+          >
+            <GithubIcon />
+          </motion.a>
+          <motion.a
+            target={"_blank"}
+            className="w-6 mx-3"
+            href="https://www.linkedin.com/in/john-kreisher-792aa34b/"
+            whileHover={{ y: -2 }}
+            whileTap={{ scale: 0.9 }}
+            aria-label="Checkout my linkedin profile"
+          >
+            <LinkedInIcon />
+          </motion.a>
+          <motion.a
+            target={"_blank"}
+            className="w-6 mx-3"
+            href="https://open.spotify.com/user/j-krush?si=2c088ce1cdd246b6"
+            whileHover={{ y: -2 }}
+            whileTap={{ scale: 0.9 }}
+            aria-label="Checkout my Spotify profile"
+          >
+            <SpotifyIcon />
+          </motion.a>
+          <motion.a
+            target={"_blank"}
+            className="w-6 mx-3"
+            href="https://soundcloud.com/megakrush"
+            whileHover={{ y: -2 }}
+            whileTap={{ scale: 0.9 }}
+            aria-label="Checkout my Soundcloud profile"
+          >
+            <SoundcloudIcon />
+          </motion.a>
+          <motion.a
+            target={"_blank"}
+            className="w-6 mx-3"
+            href="https://www.youtube.com/@FlowcraftMedia"
+            whileHover={{ y: -2 }}
+            whileTap={{ scale: 0.9 }}
+            aria-label="Checkout my Soundcloud profile"
+          >
+            <YoutubeIcon />
+          </motion.a>
 
-        <button
-          onClick={() => setMode(mode === "light" ? "dark" : "light")}
-          className={`w-6 h-6 ease ml-3 flex items-center justify-center rounded-full p-1  
-            ${mode === "light" ? "bg-dark  text-light" : "bg-light  text-dark"}
-            `}
-          aria-label="theme-switcher"
-        >
-          {mode === "light" ? (
-            <SunIcon className={"fill-dark"} />
-          ) : (
-            <MoonIcon className={"fill-dark"} />
-          )}
-        </button>
-      </nav>
+          <button
+            onClick={() => setMode(mode === "light" ? "dark" : "light")}
+            className={`w-6 h-6 ease ml-3 flex items-center justify-center rounded-full p-1  
+              ${mode === "light" ? "bg-dark  text-light" : "bg-light  text-dark"}
+              `}
+            aria-label="theme-switcher"
+          >
+            {mode === "light" ? (
+              <SunIcon className={"fill-dark"} />
+            ) : (
+              <MoonIcon className={"fill-dark"} />
+            )}
+          </button>
+        </nav>
       </div>
     {
       isOpen ? 
