@@ -36,7 +36,7 @@ export default function Work() {
         <Layout className="pt-16 mb-36">
           <AnimatedText
             text="My Work"
-            className="mb-8 !text-8xl !leading-tight lg:!text-7xl sm:mb-8 sm:!text-6xl xs:!text-4xl"
+            className="my-16 !text-8xl !leading-tight lg:!text-7xl sm:mb-8 sm:!text-6xl xs:!text-4xl"
           />
           <p className="font-large mb-8 text-center">
             I help businesses set up key infrastructure, and automate processes. 

@@ -34,7 +34,7 @@ export default function Home() {
         className={`flex mb-36 min-h-screen items-center text-dark dark:text-light sm:items-start`}
       >
         <Layout className="pt-16">
-          <div className="flex w-full items-start justify-between lg:items-center lg:flex-col lg:mt-16">
+          <div className="my-16 flex w-full items-start justify-between lg:items-center lg:flex-col">
             {/* <div className="w-1/2 lg:justify-center md:inline-block md:w-full"> */}
             <div className="w-1/2 p-6 lg:hidden">
               <Image
@@ -47,10 +47,6 @@ export default function Home() {
             </div>
 
             <div className="flex w-1/2 flex-col items-start self-center lg:items-center lg:w-full lg:text-center">
-              {/* <AnimatedText
-                text="Creating across mediums, connecting the dots, making magic happen."
-                className="!text-left !text-6xl xl:!text-5xl lg:!text-6xl md:!text-5xl sm:!text-3xl"
-              /> */}
               <div className="h-8 mb-6">
                 <Typewriter
                   className="mb-4 text-lg font-bold uppercase text-dark/75 dark:text-light/75"

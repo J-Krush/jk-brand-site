@@ -77,7 +77,7 @@ export default function About() {
         <Layout className="pt-16">
           <AnimatedText
             text="Creating across mediums"
-            className="mb-16 !text-8xl !leading-tight lg:!text-6xl xs:!text-3xl md:text-left sm:mb-8"
+            className="my-16 !text-8xl !leading-tight lg:!text-6xl xs:!text-3xl sm:mb-8"
           />
 
           {/* This is the grid */}

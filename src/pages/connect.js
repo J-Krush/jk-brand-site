@@ -222,7 +222,7 @@ export default function Connect() {
         <Layout className="pt-16">
           <AnimatedText
               text="Let's Connect"
-              className="!text-8xl !leading-tight lg:!text-7xl sm:mb-8 sm:!text-6xl xs:!text-4xl"
+              className="my-16 !text-8xl !leading-tight lg:!text-7xl sm:mb-8 sm:!text-6xl xs:!text-4xl"
           />
           <p className="font-medium text-lg mb-8 text-center">
                 I love collaborating. Got an idea or project? Let&apos;s make something awesome together!
