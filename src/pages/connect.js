@@ -19,9 +19,7 @@ const ContactForm = () => {
   const [token, setToken] = useState("");
   const [refreshReCaptcha, setRefreshReCaptcha] = useState(false);
 
-  const setTokenFunc = (getToken) => {
-    setToken(getToken);
-  };
+ 
 
   const resetForm = () => {
     setFormUserName("");
@@ -38,21 +36,24 @@ const ContactForm = () => {
 }
 
   // Create an event handler so you can call the verification on button click event or form submit
-  const handleReCaptchaVerify = useCallback(async () => {
-    if (!executeRecaptcha) {
-      console.log('Execute recaptcha not yet available');
-      return;
-    }
+  // const setTokenFunc = (getToken) => {
+  //   setToken(getToken);
+  // };
+  // const handleReCaptchaVerify = useCallback(async () => {
+  //   if (!executeRecaptcha) {
+  //     console.log('Execute recaptcha not yet available');
+  //     return;
+  //   }
 
-    const token = await executeRecaptcha('yourAction');
+  //   const token = await executeRecaptcha('yourAction');
 
-    setToken(token);
+  //   setToken(token);
 
-  }, [executeRecaptcha]);
+  // }, [executeRecaptcha]);
 
-  useEffect(() => {
-    handleReCaptchaVerify();
-  }, [handleReCaptchaVerify]);
+  // useEffect(() => {
+  //   handleReCaptchaVerify();
+  // }, [handleReCaptchaVerify]);
 
   
     
@@ -218,10 +219,10 @@ export default function Connect() {
       <article
         className={`flex min-h-screen items-center text-dark dark:text-light sm:items-start`}
       >
-        <Layout className="!pt-0 md:!pt-16 sm:!pt-16">
+        <Layout className="pt-16">
           <AnimatedText
               text="Let's Connect"
-              className="mb-8 !text-8xl !leading-tight lg:!text-7xl sm:mb-8 sm:!text-6xl xs:!text-4xl"
+              className="!text-8xl !leading-tight lg:!text-7xl sm:mb-8 sm:!text-6xl xs:!text-4xl"
           />
           <p className="font-medium text-lg mb-8 text-center">
                 I love collaborating. Got an idea or project? Let&apos;s make something awesome together!
