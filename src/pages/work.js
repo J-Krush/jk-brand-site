@@ -10,6 +10,8 @@ import shapesmithStudioSite from "../../public/images/projects/shapesmith-studio
 import zuriFertilitySite from "../../public/images/projects/zuri-fertility-site-hero.png";
 import agendaKeeperSite from "../../public/images/projects/agenda-keeper-site-hero.png";
 import learnEngineSite from "../../public/images/projects/learn-engine-course-library.png";
+import wrangleAppEditor from "../../public/images/projects/wrangle-app-editor.png";
+import whoAmIDashboard from "../../public/images/projects/who-am-i-dashboard.png";
 
 import TransitionEffect from "@/components/TransitionEffect";
 
@@ -58,6 +60,7 @@ export default function Work() {
                 title="Wrangle"
                 summary="A native macOS app for wrangling your windows, workspaces, and workflow - built from scratch in Swift."
                 link="https://wrangleapp.dev"
+                img={wrangleAppEditor}
               />
             </div>
             <div className="col-span-12">
@@ -66,6 +69,7 @@ export default function Work() {
                 title="Who Am I?"
                 summary="Your personality models, astrology, and self-knowledge - all in one shareable profile. Understand yourself, then share it with your circle."
                 link=""
+                img={whoAmIDashboard}
                 banner="Launching Soon"
               />
             </div>

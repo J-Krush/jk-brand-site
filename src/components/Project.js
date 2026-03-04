@@ -105,23 +105,37 @@ const FeaturedProject = ({ type, title, summary, img, link, github, banner, newT
         )}
 
         {img ? (
-        <Link
-          href={link || "#"}
-          target={newTab === true && link ? "_blank" : undefined}
-          className="w-1/2 cursor-pointer overflow-hidden rounded-lg lg:w-full"
-        >
-          <FramerImage
-            src={img}
-            className="h-auto w-full"
-            alt={title}
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.2 }}
-            sizes="(max-width: 768px) 100vw,
-                (max-width: 1200px) 50vw,
-                33vw"
-            priority
-          />
-        </Link>
+          link ? (
+          <Link
+            href={link}
+            target={newTab ? "_blank" : undefined}
+            className="w-1/2 cursor-pointer overflow-hidden rounded-lg lg:w-full"
+          >
+            <FramerImage
+              src={img}
+              className="h-auto w-full"
+              alt={title}
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.2 }}
+              sizes="(max-width: 768px) 100vw,
+                  (max-width: 1200px) 50vw,
+                  33vw"
+              priority
+            />
+          </Link>
+          ) : (
+          <div className="w-1/2 overflow-hidden rounded-lg lg:w-full">
+            <FramerImage
+              src={img}
+              className="h-auto w-full"
+              alt={title}
+              sizes="(max-width: 768px) 100vw,
+                  (max-width: 1200px) 50vw,
+                  33vw"
+              priority
+            />
+          </div>
+          )
         ) : (
         <div className="flex w-1/2 items-center justify-center overflow-hidden rounded-lg bg-dark/5 dark:bg-light/5 aspect-video lg:w-full">
           <span className="text-dark/40 dark:text-light/40 text-sm font-medium">Image coming soon</span>
@@ -131,15 +145,21 @@ const FeaturedProject = ({ type, title, summary, img, link, github, banner, newT
           <span className="text-xl font-medium text-primary dark:text-primaryDark xs:text-base">
             {type}
           </span>
-          <Link
-            href={link}
-            target={newTab === true ? "_blank" : undefined}
-            className="underline-offset-2 hover:underline"
-          >
+          {link ? (
+            <Link
+              href={link}
+              target={newTab ? "_blank" : undefined}
+              className="underline-offset-2 hover:underline"
+            >
+              <h2 className="my-2 w-full text-left text-4xl font-bold lg:text-3xl xs:text-2xl">
+                {title}
+              </h2>
+            </Link>
+          ) : (
             <h2 className="my-2 w-full text-left text-4xl font-bold lg:text-3xl xs:text-2xl">
               {title}
             </h2>
-          </Link>
+          )}
           <p className=" my-2 rounded-md font-medium text-dark dark:text-light sm:text-sm">
             {summary}
           </p>
