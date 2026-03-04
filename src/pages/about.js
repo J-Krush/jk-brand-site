@@ -105,7 +105,7 @@ export default function About() {
                 />
               </div>
               <p className="font-medium ">
-               I don’t stick to just one lane—I build, create, and explore across multiple mediums. Whether it’s writing code, composing music, or designing systems, my work involves bringing together different disciplines to find unique solutions. It’s all about connecting ideas, people, and experiences to make the world a bit more compassionate, open, and fun.
+               I don’t stick to just one lane. I build, create, and explore across multiple mediums. Whether it’s writing code, composing music, or designing systems, my work involves bringing together different disciplines to find unique solutions. It’s all about connecting ideas, people, and experiences to make the world a bit more compassionate, open, and fun.
               
               </p>
               <div className="mt-2 flex items-baseline self-start lg:self-center">
@@ -132,7 +132,7 @@ export default function About() {
                 </Link>
               </div>
               {/* <p className="my-4 font-medium">
-                I’m a builder at heart—whether it’s creating code, composing music, or performing on stage. I thrive on mixing things up, bridging silos, and finding new ways to connect people through creativity. My work isn’t just about solving problems—it’s about playing with possibilities, exploring ideas, and making the world a more open and compassionate place. And yeah, I like to have fun while I’m at it.
+                I’m a builder at heart-whether it’s creating code, composing music, or performing on stage. I thrive on mixing things up, bridging silos, and finding new ways to connect people through creativity. My work isn’t just about solving problems-it’s about playing with possibilities, exploring ideas, and making the world a more open and compassionate place. And yeah, I like to have fun while I’m at it.
               </p> */}
               {/* <p className="font-medium">
                 Whether I&apos;m working on a website, mobile app, or other

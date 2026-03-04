@@ -83,13 +83,13 @@ const Project = ({ title, subtitle, img, link, onClick, newTab = true, imageOnTo
     );
   };
 
-const FeaturedProject = ({ type, title, summary, img, link, github, newTab = true }) => {
+const FeaturedProject = ({ type, title, summary, img, link, github, banner, newTab = true }) => {
 
     return (
       <article
         className="relative flex w-full items-center  justify-between rounded-3xl rounded-br-2xl border
-  border-solid border-dark bg-light p-12 shadow-2xl  dark:border-light dark:bg-dark  lg:flex-col 
-  lg:p-8 xs:rounded-2xl  xs:rounded-br-3xl xs:p-4 
+  border-solid border-dark bg-light p-12 shadow-2xl  dark:border-light dark:bg-dark  lg:flex-col
+  lg:p-8 xs:rounded-2xl  xs:rounded-br-3xl xs:p-4
       "
       >
         <div
@@ -97,10 +97,17 @@ const FeaturedProject = ({ type, title, summary, img, link, github, newTab = tru
            dark:bg-light  xs:-right-2 xs:h-[102%] xs:w-[100%]
           xs:rounded-[1.5rem] "
         />
-  
+
+        {banner && (
+          <span className="absolute top-6 right-6 z-10 rounded-full bg-primary px-4 py-1.5 text-sm font-semibold text-light dark:bg-primaryDark dark:text-dark xs:top-3 xs:right-3 xs:text-xs">
+            {banner}
+          </span>
+        )}
+
+        {img ? (
         <Link
-          href={link}
-          target={newTab === true ? "_blank" : undefined}
+          href={link || "#"}
+          target={newTab === true && link ? "_blank" : undefined}
           className="w-1/2 cursor-pointer overflow-hidden rounded-lg lg:w-full"
         >
           <FramerImage
@@ -115,6 +122,11 @@ const FeaturedProject = ({ type, title, summary, img, link, github, newTab = tru
             priority
           />
         </Link>
+        ) : (
+        <div className="flex w-1/2 items-center justify-center overflow-hidden rounded-lg bg-dark/5 dark:bg-light/5 aspect-video lg:w-full">
+          <span className="text-dark/40 dark:text-light/40 text-sm font-medium">Image coming soon</span>
+        </div>
+        )}
         <div className="flex w-1/2 flex-col items-start justify-between pl-6 lg:w-full lg:pl-0 lg:pt-6">
           <span className="text-xl font-medium text-primary dark:text-primaryDark xs:text-base">
             {type}

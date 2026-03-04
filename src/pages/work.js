@@ -8,6 +8,8 @@ import { Project, FeaturedProject } from "@/components/Project";
 import geniusFrequencySite from "../../public/images/projects/genius-frequency-site-hero.png";
 import shapesmithStudioSite from "../../public/images/projects/shapesmith-studio-site-hero.png";
 import zuriFertilitySite from "../../public/images/projects/zuri-fertility-site-hero.png";
+import agendaKeeperSite from "../../public/images/projects/agenda-keeper-site-hero.png";
+import learnEngineSite from "../../public/images/projects/learn-engine-course-library.png";
 
 import TransitionEffect from "@/components/TransitionEffect";
 
@@ -46,10 +48,52 @@ export default function Work() {
           </p>
           { /* TODO need to add links to the sections on this page in the text here */ }
 
-          <h3 id="featured_software_projects" className="mb-16 font-bold text-6xl mt-64 w-full text-center md:text-4xl md:mt-32">
-            Featured Software Projects
-          </h3> 
+          <h3 id="my_apps" className="mb-16 font-bold text-6xl mt-64 w-full text-center md:text-4xl md:mt-32">
+            JK Products
+          </h3>
           <div className="grid grid-cols-12 gap-y-12">
+            <div className="col-span-12">
+              <FeaturedProject
+                type="macOS App - Swift"
+                title="Wrangle"
+                summary="A native macOS app for wrangling your windows, workspaces, and workflow - built from scratch in Swift."
+                link="https://wrangleapp.dev"
+              />
+            </div>
+            <div className="col-span-12">
+              <FeaturedProject
+                type="Web App - Next.js, Convex"
+                title="Who Am I?"
+                summary="Your personality models, astrology, and self-knowledge - all in one shareable profile. Understand yourself, then share it with your circle."
+                link=""
+                banner="Launching Soon"
+              />
+            </div>
+          </div>
+
+          <h3 id="featured_software_projects" className="mb-16 font-bold text-6xl mt-64 w-full text-center md:text-4xl md:mt-32">
+            Featured Client Projects
+          </h3>
+          <div className="grid grid-cols-12 gap-y-12">
+            <div className="col-span-12">
+              <FeaturedProject
+                type="Full Stack Web App - Next.js, Neon Postgres"
+                title="The Learn Engine"
+                summary="Multi-tenant, multi-lingual learning management system (LMS) built from zero to production. Lead architect - owned requirements, system design, and every line of code across the full stack."
+                link="https://vivid.thelearnengine.com/"
+                img={learnEngineSite}
+              />
+            </div>
+            <div className="col-span-12">
+              <FeaturedProject
+                type="Productivity App - Next.js, Convex"
+                title="Agenda Keeper"
+                summary="Calendar-powered productivity app that keeps your agenda tight and your priorities visible."
+                link="https://agendakeeper.com/"
+                banner="New Version Coming Soon"
+                img={agendaKeeperSite}
+              />
+            </div>
             <div className="col-span-12">
               <FeaturedProject
                 type="Webflow Site and Node.js API"
@@ -65,7 +109,7 @@ export default function Work() {
                 title="Shapesmith Studio Website"
                 summary="A React.js and Tailwind CSS site. All content served via Sanity CMS."
                 img={shapesmithStudioSite}
-                link="https://www.shapemsith.studio"
+                link="https://www.shapesmith.studio"
                 github="https://github.com/J-Krush/shapesmith-studio-web"
               />
             </div>

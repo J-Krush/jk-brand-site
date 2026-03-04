@@ -21,13 +21,19 @@ const Details = ({ position, company, companyLink, time, address, work }) => {
       >
         <h3 className="capitalize font-bold text-2xl sm:text-xl xs:text-lg">
           {position}{" "}
-          <a
-            className="capitalize text-primary dark:text-primaryDark"
-            href={companyLink}
-            target={"_blank"}
-          >
-            @{company}
-          </a>
+          {companyLink ? (
+            <a
+              className="capitalize text-primary dark:text-primaryDark"
+              href={companyLink}
+              target={"_blank"}
+            >
+              @{company}
+            </a>
+          ) : (
+            <span className="capitalize text-primary dark:text-primaryDark">
+              @{company}
+            </span>
+          )}
         </h3>
         <span className="capitalize text-dark/75 font-medium dark:text-light/50 xs:text-sm">
           {time} | {address}
@@ -44,7 +50,7 @@ const Experience = () => {
 
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start center", "center start"],
+    offset: ["start center", "end start"],
   });
 
   return (
@@ -62,64 +68,137 @@ const Experience = () => {
           />
           <ul className="w-full flex flex-col items-start justify-between ml-4 xs:ml-2">
             <Details
-                position="Founder and Maker"
-                company="Shapesmith Studio"
-                companyLink="https://shapesmith.studio"
-                time="2022-Present"
-                address="Asheville, NC"
-                work="Laser cutting and maker studio for large art installations, signage, layered art, and custom design."
+              position="Full Stack Engineer"
+              company="Aktïga"
+              companyLink="https://aktiga.com/"
+              time="Nov 2024-Present"
+              address="Hybrid"
+              work="Full-stack engineering for Aktïga's internal and client agency projects, owning features end-to-end from database schema to responsive UI, while pioneering AI-augmented development workflows across the organization."
+            />
+            {/* <Details
+              position="Founder, Maker"
+              company="Shapesmith Studio"
+              companyLink="https://shapesmith.studio"
+              time="Aug 2022-Present"
+              address="Asheville, NC"
+              work="Laser cutting and maker studio for large art installations, signage, layered art, and custom design."
+            /> */}
+            <Details
+              position="Founder, Engineer"
+              company="Cubik Limited"
+              time="Oct 2014-Present"
+              address="On-site"
+              work="Independent technical consultancy spanning software engineering, mechanical design, digital media, and fabrication. A decade of delivering across disciplines for clients and personal ventures."
+            />
+            <Details
+              position="Systems Engineer"
+              company="HiveTracks"
+              companyLink="http://hivetracks.com/"
+              time="Dec 2024-Jul 2025"
+              address="Remote"
+              work="Systems engineering for a data-driven beekeeping platform, building analytics dashboards and workflow automations that turn raw hive data into actionable insights."
             />
             <Details
               position="Backend Software Engineer"
               company="Zuri Fertility"
               companyLink="https://zurifertility.com"
-              time="2022"
-              address="Remote (Contract)"
-              work="Architected the microservices backend for Zuri Fertility, a medical startup focused on providing better fertility care for both men and women."
+              time="Jun 2022-Dec 2022"
+              address="Remote"
+              work="Architected the microservices backend for a medical startup focused on providing better fertility care for both men and women."
             />
             <Details
               position="Full Stack Software Engineer"
               company="Anthroware"
               companyLink="https://www.anthroware.com/"
-              time="2018-2021"
-              address="Asheville, NC"
-              work="Product development, full-stack engineering and business viability. Worked directly with clients and startups, providing software expertise, design and implementation on a number of different technologies."
+              time="Aug 2018-Oct 2021"
+              address="Hybrid"
+              work="Product development and full-stack engineering at a software consultancy, shipping applications across web, mobile, and emerging platforms for a diverse client portfolio."
             />
-
             <Details
               position="VR Developer"
-              company="Better Than Unicorns (BTU)"
+              company="Better Than Unicorns"
               companyLink="https://betterthanunicorns.com"
-              time="2017-2018"
-              address="Asheville NC"
-              work="Virtual reality immersive experience design and development utilizing Unreal Engine. Performed photogrammetry tasks for art preservation, and photo-realistic model creation. Created photospheres (360 Panoramas) for virtual walkthroughs."
+              time="May 2017-Mar 2018"
+              address="Asheville, NC"
+              work="Immersive VR experience design and development in Unreal Engine. Pioneered photogrammetry-based virtual walkthroughs before tools like Matterport existed."
             />
-
+            <Details
+              position="Acrobat, Dancer, Choreographer, Rigger"
+              company="Fractal Tribe"
+              companyLink="https://bouldercircuscenter.net/"
+              time="Jun 2015-Apr 2017"
+              address="Boulder, CO"
+              work="Performed and choreographed partner acrobatics for live theatrical circus shows. Designed and manufactured a novel circus apparatus and provided rigging and safety engineering."
+            />
             <Details
               position="iOS Developer"
               company="Thinklabs"
               companyLink="https://www.thinklabs.com/"
-              time="2016-2017"
+              time="Aug 2016-Mar 2017"
               address="Denver, CO"
-              work="Development of the Thinklabs Stethoscope iOS app. Features included: Bluetooth LE connectivity, spectrogram (FFT) and real-time audio visualization, record and analyze heart and lung sounds, listening buffers for catching important sounds."
+              work="Built the Thinklabs digital stethoscope iOS app featuring Bluetooth LE connectivity, real-time FFT audio visualization, and heart/lung sound recording and analysis."
             />
-
             <Details
               position="Forensic Analyst"
               company="Kineticorp"
               companyLink="https://kineticorp.com"
-              time="2016"
+              time="Feb 2016-Aug 2016"
               address="Denver, CO"
-              work="Performed physics-based visualization tasks for the purpose of accident reconstruction. Conducted scene and vehicle inspections utilizing Faro 3D scanners and surveying equipment. Flew Phantom 3 drones for aerial imagery and photogrammetry solutions. Performed research studies about driver behavior and distance estimation. "
+              work="Physics-based accident reconstruction using Faro 3D scanners, drone aerial imagery, and photogrammetry. Conducted driver behavior research and scene inspections."
             />
-
             <Details
               position="Technical Writer"
               company="Fictiv"
               companyLink="https://fictiv.com"
-              time="2015-2016"
+              time="Nov 2015-Apr 2016"
               address="Remote"
-              work="Wrote technical hardware development how-to articles, which can be found on Fictiv.com. Subject matter ranges from digital design to how to make a CNC drawing."
+              work="Wrote technical hardware development articles covering digital design, CNC machining, and prototyping workflows."
+            />
+            <Details
+              position="CAD Designer/Engineer"
+              company="Arrigo Enterprises"
+              time="Sep 2014-Oct 2015"
+              address="Boulder, CO"
+              work="Mechanical design and engineering for high-temperature laboratory equipment, from concept through production-ready manufacturing drawings."
+            />
+            <Details
+              position="iOS Developer"
+              company="Advantage Electronic Product Development"
+              time="Sep 2013-Jul 2014"
+              address="Broomfield, CO"
+              work="Developed Bluetooth Low Energy-connected iOS applications for embedded hardware products at a product development firm."
+            />
+            <Details
+              position="Aerospace Mechanical Design Engineer"
+              company="LASP"
+              companyLink="https://lasp.colorado.edu"
+              time="May 2012-Aug 2013"
+              address="Boulder, CO"
+              work="Mechanical design engineering on the CICERO satellite mission at CU Boulder's Laboratory for Atmospheric and Space Physics."
+            />
+            <Details
+              position="Systems Engineer"
+              company="Applied Research Lab at Penn State"
+              companyLink="https://www.arl.psu.edu/"
+              time="May 2011-Aug 2011"
+              address="State College, PA"
+              work="Systems engineering on defense research programs at Penn State's Applied Research Laboratory."
+            />
+            <Details
+              position="Student Researcher"
+              company="NASA/NSERC"
+              companyLink="https://www.nasa.gov/"
+              time="Jun 2010-Jul 2010"
+              address="Irvine, CA"
+              work="Selected for NASA's Student Airborne Research Program. Conducted atmospheric science research and presented findings at the AGU annual meeting."
+            />
+            <Details
+              position="Structures Team Lead"
+              company="Penn State University"
+              companyLink="https://www.psu.edu/"
+              time="Jun 2008-Jan 2009"
+              address="State College, PA"
+              work="Led the structures subsystem for Penn State's entry in the Air Force Research Laboratory's NanoSAT-5 satellite competition."
             />
           </ul>
         </div>

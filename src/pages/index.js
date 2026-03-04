@@ -41,8 +41,9 @@ export default function Home() {
                 src={profilePic}
                 alt="J-Krush"
                 className="h-auto w-full"
-                sizes="100vw"
+                sizes="(max-width: 1023px) 0px, 50vw"
                 priority
+                placeholder="blur"
               />
             </div>
 
@@ -68,7 +69,7 @@ export default function Home() {
               </div>
               
               <p className="text-center my-4 text-base font-medium lg:text-center">
-              Polymath at heart.. always learning, always building.
+              Polymath. Dangerously curious, annoyingly capable.
               </p>
               <div className="mt-2 flex items-center self-start lg:self-center">
                 <Link
@@ -166,7 +167,7 @@ export default function Home() {
             </div>
           </div>
           
-          <h3 className="mb-8 font-bold text-4xl mt-64 w-full text-center md:text-3xl md:mt-32">
+          {/* <h3 className="mb-8 font-bold text-4xl mt-64 w-full text-center md:text-3xl md:mt-32">
             My Businesses
           </h3> 
           <p className="font-medium mb-8 text-center">
@@ -205,7 +206,7 @@ export default function Home() {
                 showVisitButton={false}
               />
             </div>
-          </div>
+          </div> */}
         </Layout>
 
         {/* <HireMe /> */}
