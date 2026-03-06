@@ -104,7 +104,7 @@ export default function About() {
                   }}
                 />
               </div>
-              <p className="font-medium ">
+              <p className="font-medium text-xl">
                I don’t stick to just one lane. I build, create, and explore across multiple mediums. Whether it’s writing code, composing music, or designing systems, my work involves bringing together different disciplines to find unique solutions. It’s all about connecting ideas, people, and experiences to make the world a bit more compassionate, open, and fun.
               
               </p>

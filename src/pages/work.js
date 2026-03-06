@@ -42,10 +42,10 @@ export default function Work() {
             text="My Work"
             className="my-16 !text-8xl !leading-tight lg:!text-7xl sm:mb-8 sm:!text-6xl xs:!text-4xl"
           />
-          <p className="font-large mb-8 text-center">
+          <p className="text-2xl font-semibold mb-8 text-center">
             I help businesses set up key infrastructure, and automate processes. 
           </p>
-          <p className="font-large mb-8 text-center"> 
+          <p className="text-2xl font-semibold mb-8 text-center"> 
             My specialty is in custom software development and holistic systems design and integration.
           </p>
           { /* TODO need to add links to the sections on this page in the text here */ }
@@ -58,7 +58,8 @@ export default function Work() {
               <FeaturedProject
                 type="macOS App - Swift"
                 title="Wrangle"
-                summary="A native macOS app for wrangling your windows, workspaces, and workflow - built from scratch in Swift."
+                summary="A native macOS app for wrangling your AI agents - built from scratch in Swift."
+                
                 link="https://wrangleapp.dev"
                 img={wrangleAppEditor}
               />
