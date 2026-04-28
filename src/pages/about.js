@@ -3,7 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { LinkArrow } from "@/components/Icons";
-// import { Carousel } from "@material-tailwind/react";
+import AIProfileCarousel from "@/components/AIProfileCarousel";
 
 
 // import profile from "../../public/images/profile/jkrush-goofy-profile.JPG";
@@ -152,32 +152,7 @@ export default function About() {
                 bg-dark
         dark:bg-light  "
               />
-              {/* Carousel temporarily disabled — investigating production crash on About page */}
-              <Image
-                className="h-auto w-full rounded-2xl"
-                src={aiProfiles[0]}
-                alt="J-Krush AI Profile"
-                sizes="(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              33vw"
-                priority
-              />
-              {/* <Carousel className="rounded-xl">
-                {aiProfiles.map((profile, index) => {
-                  return (
-                    <Image
-                      key={index}
-                      className="h-auto w-full rounded-2xl"
-                      src={profile}
-                      alt="J-Krush AI Profile"
-                      sizes="(max-width: 768px) 100vw,
-                    (max-width: 1200px) 50vw,
-                    33vw"
-                      priority
-                    />
-                  )
-                })}
-              </Carousel> */}
+              <AIProfileCarousel images={aiProfiles} />
               <span className="w-full inline-block text-center text-sm font-bold mt-4">
                   My AI Looks 👀
               </span>
