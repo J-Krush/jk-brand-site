@@ -10,9 +10,9 @@ Personal brand and portfolio site for **John Kreisher (J-Krush)** — reposition
 - **Styling:** Tailwind CSS 3.2.7 (wrapped with `@material-tailwind/react/utils/withMT`)
 - **Animation:** Framer Motion 10
 - **Font:** Montserrat (via `next/font/google`, CSS var `--font-mont`)
-- **Forms:** Netlify Forms with honeypot field
-- **Hosting:** Netlify
-- **Other:** typewriter-effect, react-google-recaptcha-v3 (configured but verification logic commented out)
+- **Hosting:** Cloudflare Workers static assets — `output: 'export'` writes `out/`, `wrangler.jsonc` serves it on `jkrush.dev` + `www.jkrush.dev`
+- **Deploys:** `.github/workflows/deploy.yml` — PRs build; push to `master` builds then `wrangler deploy` (needs `CLOUDFLARE_API_TOKEN` repo secret)
+- **Other:** typewriter-effect
 
 ### Directory Structure
 ```
@@ -20,7 +20,6 @@ src/
   components/     # Reusable UI (AnimatedText, Layout, Navbar, Skills, etc.)
     Hooks/        # useThemeSwitch
   pages/          # Next.js pages (index, about, work, projects, articles, connect, 404)
-    api/          # Serverless functions (hello.js placeholder)
   styles/         # globals.css, Home.module.css (legacy)
 public/           # Static assets, images
 ```
@@ -29,7 +28,8 @@ public/           # Static assets, images
 ```bash
 pnpm dev          # Local dev server
 pnpm build        # Production build
-pnpm start        # Serve production build
+pnpm preview      # Static export served by local Worker (wrangler dev)
+pnpm deploy:cf    # Manual build + deploy (CI normally does this)
 pnpm lint         # ESLint
 ```
 
@@ -242,10 +242,8 @@ All breakpoints are max-width overrides. Design desktop-first, then add responsi
 - **Head title/meta:** References CodeBucks and devdreaming
 
 ### Connect (`connect.js`)
-- **Status:** Functional form, submits to Netlify
-- **Enhancement:** Add "what I'm looking for" context above the form
-- **Note:** reCAPTCHA verification logic is commented out (form still works via Netlify)
-- **Cleanup:** console.log statements left in submit handler
+- **Status:** No form. Directs inquiries to Bash Squad: `mailto:john@bashsquad.com` + link to bashsquad.com
+- **Constraint:** Static export — no API routes, server code, or `next/image` optimization (`images.unoptimized`)
 
 ### 404 (`404.js`)
 - **Head title/meta:** Still references CodeBucks — needs updating

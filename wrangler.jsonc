@@ -1,0 +1,23 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "jk-brand-site",
+  // Personal Cloudflare account. Pinned so no login or env var can send
+  // this project to another account.
+  "account_id": "0fd505c77dd27db649fcf8203474118f",
+  "compatibility_date": "2026-10-01",
+  // Assets-only Worker: `pnpm build` writes the Next.js static export to out/.
+  // /about resolves to about.html; unknown paths get out/404.html with a 404.
+  "assets": {
+    "directory": "./out",
+    "not_found_handling": "404-page"
+  },
+  // Requires jkrush.dev to be an active zone in this account. Cloudflare
+  // creates and owns the DNS records for these hostnames.
+  "routes": [
+    { "pattern": "jkrush.dev", "custom_domain": true },
+    { "pattern": "www.jkrush.dev", "custom_domain": true }
+  ],
+  "workers_dev": false,
+  "preview_urls": false,
+  "observability": { "enabled": true }
+}
